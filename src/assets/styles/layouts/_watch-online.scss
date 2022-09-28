@@ -1,0 +1,44 @@
+.watch-online {
+    box-sizing: $box-type;
+    @include section(86px, 102px);
+    @include bg-image($bg-watch-online, $bg-size-watch, $bg-position-watch);
+    @include flex-column (62px);
+    align-items: flex-end;
+
+    .section__title {
+        width: 500px;
+        margin: $margin-null;
+        position: relative;
+        z-index: 1;
+        font-family: $font-main;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-h1;
+        line-height: $line-height-extra-small;
+
+        text-align: center;
+        text-transform: uppercase;
+
+        color: $color-white;
+
+        .section__title-span {
+            color: $color-yellow;
+        }
+
+        &::before {
+            @include content;
+            width: 465px;
+            height: 465px;
+            bottom: 7px;
+            right: 109px;
+            background: $grad-watch;
+            border-radius: $border-radius-half;
+            z-index: -1;
+        }
+    }
+
+    .watch-online__button {
+        @include button-rect;
+        margin: $margin-null;
+        margin-right: $margin-watch-btn;
+    }
+}

@@ -1,0 +1,160 @@
+.favorite {
+    @include section(97px, 100px);
+    position: relative;
+    @include flex-column;
+    box-sizing: $box-type;
+
+    .section__container {
+        position: relative;
+
+        .favorite__slide-button {
+            @include button(50%);
+            width: 62px;
+            height: 62px;
+            position: absolute;
+            top: 50%;
+            background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+
+            &::before {
+                @include content;
+                top: 27px;
+                left: 23px;
+                width: 16px;
+                height: 8px;
+                @include bg-image($bg-slider-btn);
+            }
+        }
+
+        .favorite__slide-button_left {
+            @extend .favorite__slide-button;
+            left: -80px;
+            transform: translateY(-74px);
+        }
+
+        .favorite__slide-button_right {
+            @extend .favorite__slide-button;
+            right: -80px;
+            transform: translateY(-74px) rotate(180deg)
+        }
+
+        .favorite__card-list {
+            @include list-base(grid, $gap-favorite-list);
+            margin-bottom: 80px;
+            grid-template-columns: repeat(3, 1fr);
+
+            .favorite__card {
+                width: 366px;
+                height: 426px;
+                @include flex-column(0);
+                @include card-border;
+                padding-bottom: $padding-card-bottom;
+                position: relative;
+                box-sizing: $box-type;
+                overflow: hidden;
+
+                .favorite__image {
+                    margin: 0 auto;
+                    width: 366px;
+                    height: 366px;
+                    object-fit: cover;
+                    object-position: center;
+                    margin-bottom: $margin-card-img-bottom;
+                    border-radius: $border-radius-regular $border-radius-regular 0 0;
+                    transition: all 0.5s ease;
+                    z-index: 0;
+                }
+
+                &:hover {
+                    z-index: 1;
+
+                    &::after {
+                        @include content;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        width: 366px;
+                        height: 426px;
+                        background: rgba(0, 0, 0, 0.3);
+                        z-index: 0;
+                    }
+
+                    .favorite__image {
+                        transform: translate(-10px, 0px);
+                        width: 386px;
+                        height: 366px;
+                    }
+
+                    .favorite__card-text {
+                        transform: translate(20px, -70px);
+                        z-index: 1;
+                        color: $color-white;
+                    }
+                }
+
+                .favorite__card-text {
+                    margin-left: $margin-card-left;
+                    color: $color-black;
+                    font-family: $font-main;
+                    transition: all 0.5s ease;
+
+                    .favorite__card-title {
+                        margin: $margin-null;
+                        margin-bottom: $margin-card-title-bottom;
+                        font-weight: $font-weight-medium;
+                        font-size: $font-size-regular;
+                        line-height: $line-height-large;
+                        text-transform: uppercase;
+                    }
+
+                    .favorite__card-desc {
+                        margin: $margin-null;
+                        font-weight: $font-weight-light;
+                        font-size: $font-size-small;
+                        line-height: $line-height-small;
+                    }
+                }
+
+            }
+
+            .predator {
+                @include food-icon;
+                width: 40px;
+                height: 38px;
+                @include bg-image($bg-icon-predator);
+
+            }
+
+            .herbivore {
+                @include food-icon;
+                width: 33px;
+                height: 35px;
+                @include bg-image($bg-icon-herbivore);
+
+            }
+        }
+    }
+
+    &::before {
+        @include content;
+        left: 0;
+        bottom: 0;
+        width: 291px;
+        height: 459px;
+        @include bg-image($bg-favorite-left)
+    }
+
+    &::after {
+        @include content;
+        right: 0;
+        bottom: 0;
+        width: 370px;
+        height: 278px;
+        @include bg-image($bg-favorite-right)
+    }
+
+    .favorite__choose-button {
+        @include button-rect;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,199 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column ($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@mixin section ($top, $bottom) {
+    padding: $top $padding-side-page $bottom;
+}
+
+@mixin content {
+    content: '';
+    position: absolute;
+}
+
+@mixin logo-size {
+    width: $width-logo;
+    height: $height-logo;
+}
+
+@mixin logo-text {
+    font: {
+        family: $font-main;
+        size: $font-size-logo;
+        weight: $font-weight-regular;
+    }
+
+    line-height: $line-height-small;
+    color: $color-white;
+}
+
+@mixin logo {
+    @include logo-size;
+    @include flex-center;
+    position: relative;
+    box-sizing: $box-type;
+    border: $border-light;
+    border-radius: $border-radius-small;
+
+    .logo__title {
+        margin: $margin-null;
+        @include logo-text;
+        text-align: center;
+
+        .nav__link {
+            @include link-base($color-white);
+        }
+    }
+
+    &::after {
+        @include content;
+        width: 7px;
+        height: 21px;
+        left: 11px;
+        bottom: 5px;
+        transform: rotate(150deg);
+        @include bg-image($bg-logo);
+    }
+}
+
+@mixin navigation {
+    .list {
+        @include list-base(flex, $gap-nav-list);
+
+        .nav__link {
+            @include link-base($color-white);
+            @include header-text;
+        }
+
+        .nav__link_active {
+            color: $color-orange;
+        }
+
+        .nav__link_active[href='#'] {
+            &:hover {
+                opacity: $opacity-none;
+                transition: $transition-std;
+                cursor: default;
+            }
+        }
+    }
+}
+
+@mixin copyright ($color, $color-active) {
+    @include link-base($color-white, $color-active);
+    margin: $margin-null;
+    @include header-text;
+}
+
+@mixin header-text {
+    font: {
+        family: $font-main;
+        size: $font-size-regular;
+        weight: $font-weight-medium;
+    }
+
+    line-height: $line-height-large;
+}
+
+@mixin bg-image ($url, $size: cover, $position: center) {
+    background: url($url);
+    background-repeat: no-repeat;
+    background-size: $size;
+    background-position: $position;
+}
+
+@mixin list-base ($display, $gap) {
+    margin: $margin-null;
+    padding: $padding-null;
+    list-style-type: none;
+    display: $display;
+    gap: $gap;
+}
+
+@mixin link-base ($color, $color-active: $color-orange) {
+    color: $color;
+    text-decoration: none;
+
+    &:hover {
+        opacity: $opacity-half;
+        transition: $transition-std;
+    }
+
+    &:active {
+        opacity: $opacity-none;
+        transition: $transition-none;
+        color: $color-active;
+    }
+}
+
+@mixin button ($border-radius) {
+    background: $color-orange;
+    padding: $padding-null;
+    border-radius: $border-radius;
+    border: $border-none;
+    cursor: pointer;
+
+    &:hover {
+        background: $color-orange-hover;
+        transition: $transition-std;
+    }
+
+    &:active {
+        background: $color-green;
+        transition: $transition-none;
+    }
+
+    &:disabled {
+        background: $color-gray;
+        transition: $transition-none;
+    }
+}
+
+@mixin button-rect ($border-radius: $border-radius-medium) {
+    @include button($border-radius);
+    width: 298px;
+    height: 54px;
+    color: $color-white;
+    font-family: $font-main;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-regular;
+    line-height: $line-height-large;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@mixin card-border {
+    border: 1px solid $color-orange-favorite;
+    border-radius: $border-radius-regular;
+}
+
+@mixin food-icon {
+    @include content;
+    bottom: 14px;
+    right: 13px;
+}
+
+@mixin item-size ($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin grid-position($top, $left, $bottom, $right) {
+    grid-row-start: $top;
+    grid-column-start: $left;
+    grid-row-end: $bottom;
+    grid-column-end: $right;
+}
+
+@function get-width-grid($n) {
+    @return $n * $width-card+($n - 1) * $gap;
+}
