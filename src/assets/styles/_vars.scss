@@ -1,0 +1,111 @@
+// size
+$width-page: 1600px;
+$width-testimonials-card: 266px;
+$height-testimonials-card: 388px;
+$width-user-icon-test: 37px;
+$width-logo: 82px;
+$height-logo: 52px;
+$width-testimonials-scroll: 600px;
+$height-testimonials-scroll: 8px;
+$width-testimonials-scroll-thumb: 115px;
+$height-testimonials-scroll-thumb: 6px;
+// margin
+$margin-null: 0;
+$margin-card-img-bottom: 5px;
+$margin-card-left: 16px;
+$margin-card-title-bottom: -5px;
+$margin-watch-btn: 100px;
+// padding
+$padding-null: 0;
+$padding-small: 14px;
+$padding-card-bottom: $padding-small;
+$padding-side-page: 220px;
+$box-type: border-box;
+// grid
+$gap-collumn-favorite: 28px;
+$gap-row-favorite: 18px;
+$gap-favorite-list: $gap-row-favorite $gap-collumn-favorite;
+$gap-nav-list: 58px;
+// color
+$color-bg-black: #111115;
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-orange-favorite: #FA6F32;
+$color-orange-donate: #FE9013;
+$color-orange: #F9804B;
+$color-orange-hover: #E47209;
+$color-yellow: #FFEE2E;
+$color-green: #4B9200;
+$color-black-blue: #333B41;
+$color-gray: #767474;
+$color-gray-smoky: #828282;
+$color-light-gray: #F1F3F2;
+$color-glass-white: #FDFDFF;
+$color-red: #D31414;
+// gradient
+$grad-watch: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+$grad-orange: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%),
+linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%),
+linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+$grad-pink: linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%),
+linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+// opacity
+$opacity-half: 0.5;
+$opacity-none: 1;
+// transition
+$transition-std: ease 0.3s;
+$transition-none: none;
+// border
+$border-none: none;
+$border-light: 1px solid $color-white;
+$border-radius-small: 2px;
+$border-radius-regular: 5px;
+$border-radius-small-medium: 20px;
+$border-radius-medium: 25px;
+$border-radius-half: 50%;
+// background
+$bg-logo: '../images/bamboo.svg';
+$bg-watch-online: '../images/giant-panda.png';
+$bg-backstage: '../images/decorate/flower.png';
+$bg-testimonials: '../images/decorate/leaf.png';
+$bg-slider-btn: '../icons/arrow.svg';
+$bg-icon-herbivore: '../icons/food/herbivore.svg';
+$bg-icon-predator: '../icons/food/predator.svg';
+$bg-favorite-left: '../images/decorate/palm.png';
+$bg-favorite-right: '../images/decorate/strelitzia.png';
+$bg-icon-steps: '../icons/instructions/arrow.svg';
+$bg-icon-multiply: '../icons/multiply-icon.svg';
+$bg-icon-roller: '../icons/roller-icon.svg';
+$bg-icon-dollar: '../icons/dollar-icon.svg';
+// bg position
+$bg-position-watch: 0px -80px;
+$bg-position-backstage: top 12px right 0px;
+$bg-position-border-grad: -2px;
+$bg-position-testimonials: right -300px bottom -300px;
+$bg-position-dollar: right 10px bottom 17px;
+// bg size
+$bg-size-watch: 100% 780px;
+$bg-size-backstage: 203px 617px;
+$bg-size-icon-steps: 69px 35px;
+$bg-size-testimonials: 250px 400px;
+$bg-size-dollar: 10px 20px;
+// font
+$font-main: 'Roboto';
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+$font-weight-thin: 100;
+// font-size
+$font-size-h1: 106px;
+$font-size-h2: 48px;
+$font-size-h3: 36px;
+$font-size-subtitle: 24px;
+$font-size-logo: 19px;
+$font-size-regular: 16px;
+$font-size-small: 15px;
+// line height
+$line-height-large: 1.4;
+$line-height-medium: 1.3;
+$line-height-small: 1.2;
+$line-height-extra-small: 0.75;

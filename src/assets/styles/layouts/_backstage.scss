@@ -1,0 +1,53 @@
+.backstage {
+    box-sizing: $box-type;
+    @include section(140px, 80px);
+    @include bg-image($bg-backstage, $bg-size-backstage, $bg-position-backstage);
+    display: flex;
+    gap: 87px;
+
+    .backstage__image {
+        width: 609px;
+        height: 403px;
+    }
+
+    .backstage__desc {
+        width: 465px;
+        height: min-content;
+        color: $color-black-blue;
+
+        .backstage__title {
+            margin: $margin-null;
+            margin-bottom: 20px;
+            font-family: $font-main;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-h2;
+            line-height: $line-height-small;
+        }
+
+        .backstage__site {
+            margin: $margin-null;
+            margin-bottom: 54px;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-regular;
+            line-height: 130%;
+        }
+
+        .backstage__work {
+            margin: $margin-null;
+            margin-bottom: 34px;
+            font-family: $font-main;
+            font-weight: $font-size-regular;
+            font-size: $font-size-subtitle;
+            line-height: $line-height-small;
+        }
+
+        .backstage__work-text {
+            margin: $margin-null;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-regular;
+            line-height: $line-height-large;
+        }
+    }
+}

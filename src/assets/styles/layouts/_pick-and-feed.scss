@@ -1,0 +1,132 @@
+.pick-and-feed {
+    @include section(69px, 100px);
+    background: $grad-orange;
+    opacity: 0.9;
+
+    .pick-and-feed__container {
+        width: 100%;
+        height: 835px;
+        padding: 41px 0 59px 0;
+        box-sizing: $box-type;
+        @include flex-column;
+        border-radius: $border-radius-small-medium;
+        background: rgba(253, 253, 255, 0.52);
+        backdrop-filter: blur(2px);
+
+        .section__title {
+            margin: 0 auto 30px;
+            color: $color-orange-donate;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-h2;
+            line-height: $line-height-small;
+        }
+
+        .section__subtitle {
+            margin: 0 50px 40px 100px;
+            color: $color-black-blue;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-subtitle;
+            line-height: $line-height-small;
+        }
+
+        .pick-and-feed__text {
+            color: $color-black-blue;
+            font-family: $font-main;
+            font-size: $font-size-regular;
+            line-height: $line-height-medium;
+        }
+
+        .pick-and-feed__text_bold {
+            margin: 0 50px 10px 100px;
+            @extend .pick-and-feed__text;
+            font-weight: $font-weight-medium;
+        }
+
+        .pick-and-feed__text_normal {
+            margin: 0 198px 60px 100px;
+            @extend .pick-and-feed__text;
+            font-weight: $font-weight-regular;
+
+            .nav__link {
+                @include link-base(#333B41);
+                position: relative;
+                text-decoration: none;
+                color: $color-black-blue;
+
+                &::after {
+                    @include content;
+                    width: 100%;
+                    height: 1px;
+                    bottom: -4px;
+                    left: 0;
+                    background: $color-orange-donate;
+                }
+            }
+        }
+
+        .pick-and-feed__instruction {
+            @include flex-column;
+
+            .pick-and-feed__work {
+                margin: 0 auto 40px;
+                color: $color-orange-donate;
+                color: $color-black-blue;
+                font-family: $font-main;
+                font-weight: $font-weight-regular;
+                font-size: $font-size-h3;
+                line-height: $line-height-medium;
+            }
+
+            .pick-and-feed__list {
+                @include list-base (flex, 130px);
+                margin: 0 auto;
+                width: 764px;
+            }
+
+            .pick-and-feed__step {
+                margin-bottom: 92px;
+                width: 168px;
+                @include flex-column;
+                position: relative;
+                z-index: 1;
+
+                .pick-and-feed__image {
+                    position: relative;
+                    object-fit: contain;
+                    object-position: center;
+                }
+
+                .pick-and-feed__desc {
+                    margin: $margin-null;
+                    position: relative;
+                    bottom: -31px;
+                    color: $color-black-blue;
+                    font-family: $font-main;
+                    font-weight: $font-weight-regular;
+                    font-size: $font-size-regular;
+                    line-height: $line-height-large;
+                }
+
+                &:not(:last-of-type):before {
+                    @include content;
+                    width: 69px;
+                    height: 35px;
+                    top: 63px;
+                    right: -98px;
+                    @include bg-image ($bg-icon-steps, $bg-size-icon-steps);
+                }
+            }
+
+            .pick-and-feed__button {
+                margin: 0 auto;
+                @include button-rect;
+                box-sizing: $box-type;
+                padding: 15px;
+                text-decoration: none;
+            }
+        }
+
+    }
+}

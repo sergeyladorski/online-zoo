@@ -1,0 +1,179 @@
+.footer {
+    @include section(40px, 50px);
+    background: $color-bg-black;
+
+    display: grid;
+    grid-template-columns: 298px 100px 362px 32px 139px 232px;
+    grid-template-rows: 85px 36px 54px 44px 134px;
+
+    .logo {
+        @include logo;
+        @include grid-position(1, 1, 2, 2);
+    }
+
+    .subscribe {
+        @include grid-position(1, 5, 2, 7);
+        display: grid;
+        gap: 14px 7px;
+
+        .subscribe__title {
+            @include grid-position(1, 1, 2, 3);
+            margin: $margin-null;
+            font-family: $font-main;
+            font-weight: $font-size-regular;
+            font-size: $font-size-subtitle;
+            line-height: $line-height-small;
+            color: $color-white;
+        }
+
+        .subscribe__input {
+            @include grid-position(2, 1, 3, 2);
+            width: 228px;
+            height: 42px;
+            box-sizing: $box-type;
+            padding: 10px 7px 10px 10px;
+            border: 1px solid $color-orange;
+            border-radius: $border-radius-small;
+            background: none;
+            font-family: $font-main;
+            font-weight: $font-size-regular;
+            font-size: $font-size-regular;
+            line-height: $line-height-large;
+            color: $color-light-gray;
+
+            &:invalid {
+                color: $color-red;
+                border: 1px solid $color-red;
+                outline: 1px solid $color-red;
+            }
+
+            &:focus:valid {
+                outline: 1px solid $color-green;
+                border: 1px solid $color-green;
+                color: $color-green;
+            }
+        }
+
+        .subscribe__button {
+            @include grid-position(2, 2, 3, 3);
+            width: 129px;
+            height: 42px;
+            box-sizing: $box-type;
+            padding: 10px 0;
+            background: $color-light-gray;
+            border: 1px solid $color-black;
+            border-radius: $border-radius-regular;
+            color: $color-black-blue;
+            cursor: pointer;
+
+            &:active {
+                border: 1px solid $color-green;
+                color: $color-green;
+            }
+        }
+
+        &:invalid {
+            .subscribe__button {
+                color: $color-red;
+                border: 1px solid $color-red;
+            }
+        }
+    }
+
+    .footer__button {
+        @include grid-position(3, 1, 4, 2);
+        @include button-rect($border-radius-small);
+        padding: 16px 0;
+        box-sizing: $box-type;
+        text-decoration: none;
+    }
+
+    .footer__socials {
+        @include grid-position(5, 1, 6, 2);
+        @include list-base(flex, 9px);
+        flex-direction: column;
+        align-self: end;
+
+        .footer__socials-link {
+            @include link-base($color-white, $color-green);
+            display: grid;
+            grid-template-columns: 26px max-content;
+            gap: 12px;
+            align-items: center;
+            position: relative;
+            height: 26px;
+
+            .footer__socials-icon {
+                margin-left: 13px;
+                transform: translate(-50%);
+                z-index: 1;
+            }
+
+            .footer__socials-text {
+                font-family: $font-main;
+                font-weight: $font-weight-medium;
+                font-size: $font-size-regular;
+                line-height: $line-height-large;
+            }
+
+            &::before {
+                @include content;
+                width: 26px;
+                height: 26px;
+                bottom: 0;
+                left: 0;
+                background: $color-gray;
+                background-size: 26px 26px;
+                border-radius: $border-radius-half;
+                z-index: 0;
+            }
+
+            &:hover {
+                .footer__socials-icon {
+                    opacity: $opacity-half;
+                    transition: $transition-std;
+                }
+            }
+
+            &:active {
+                &::before {
+                    background: $color-green;
+                }
+            }
+        }
+    }
+
+    .nav {
+        @include grid-position(5, 3, 6, 4);
+        @include navigation;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .copyright {
+        @include link-base($color-white, $color-green);
+        @include grid-position(5, 6, 6, 7);
+        @include flex-column(10px);
+        justify-content: flex-end;
+        align-items: flex-start;
+        font-family: $font-main;
+        font-weight: $font-weight-thin;
+        font-size: $font-size-regular;
+        line-height: $line-height-medium;
+
+        &:active {
+            .copyright-span {
+                position: relative;
+
+                &::after {
+                    @include content;
+                    bottom: -2px;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background: $color-green;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.header {
+    @include section($padding-small, $padding-small);
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-sizing: $box-type;
+    background: $color-black;
+
+    .logo {
+        @include logo;
+        margin-right: 63px;
+    }
+
+    .nav {
+        @include navigation;
+    }
+
+    .copyright {
+        @include copyright($color-white, $color-orange);
+        margin-left: auto;
+    }
+}

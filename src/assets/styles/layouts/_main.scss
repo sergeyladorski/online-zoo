@@ -1,0 +1,7 @@
+.main {
+    .main__bg {
+        width: 1600px;
+        height: 386px;
+        @include bg-image('../images/giant-panda-short.png');
+    }
+}
