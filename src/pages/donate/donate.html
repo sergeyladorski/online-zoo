@@ -8,6 +8,8 @@
     <link rel="icon" href="favicon.ico" type="image/ico" />
   </head>
   <body class="page">
+    <div class="page__bg-dark"></div>
+
     <header class="header">
       <div class="logo">
         <h1 class="logo__title">
@@ -40,6 +42,45 @@
         target="_blank"
         >Designed by &#169;</a
       >
+      <button class="burger-menu-button" type="button"></button>
+
+      <div class="burger-menu">
+        <div class="logo">
+          <p class="logo__title">
+            <a href="./index.html" class="nav__link"> PetStory online</a>
+          </p>
+        </div>
+
+        <nav class="burger-menu__nav">
+          <ul class="list">
+            <li class="list__item">
+              <a href="./index.html" class="nav__link">About</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link">Map</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link">Zoos</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link nav__link_active">Donate</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link">Contact us</a>
+            </li>
+            <li class="list__item">
+              <a
+                href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online"
+                target="_blank"
+                class="nav__link"
+                >Designed by &#169;</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button class="burger-menu__close"></button>
+      </div>
     </header>
 
     <main class="main">
@@ -84,23 +125,24 @@
               type="range"
               min="0"
               max="7"
-              value="0"
+              value="5"
               step="1"
             />
             <datalist class="donate__bar-option-list">
-              <option value="$5000" class="donate__bar-option">$5000</option>
-              <option value="$2000" class="donate__bar-option">$2000</option>
-              <option
-                value="$1000"
-                class="donate__bar-option donate__bar-option-active"
-              >
+              <option data-amount="5000" class="donate__bar-option">
+                $5000
+              </option>
+              <option data-amount="2000" class="donate__bar-option">
+                $2000
+              </option>
+              <option data-amount="1000" class="donate__bar-option">
                 $1000
               </option>
-              <option value="$500" class="donate__bar-option">$500</option>
-              <option value="$250" class="donate__bar-option">$250</option>
-              <option value="$100" class="donate__bar-option">$100</option>
-              <option value="$50" class="donate__bar-option">$50</option>
-              <option value="$25" class="donate__bar-option">$25</option>
+              <option data-amount="500" class="donate__bar-option">$500</option>
+              <option data-amount="250" class="donate__bar-option">$250</option>
+              <option data-amount="100" class="donate__bar-option">$100</option>
+              <option data-amount="50" class="donate__bar-option">$50</option>
+              <option data-amount="25" class="donate__bar-option">$25</option>
             </datalist>
           </div>
 
@@ -110,6 +152,7 @@
             min="0"
             max="9999"
             placeholder="Another amount"
+            required
           />
 
           <fieldset class="donate__period">

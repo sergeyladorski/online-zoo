@@ -1,13 +1,15 @@
 // constants
-@import 'vars';
-@import 'mixins';
+@import '_vars';
+@import '_mixins';
 
 // layouts
 @import './layouts/_page.scss';
 @import './layouts/_header.scss';
+@import './layouts/burger-menu';
 @import './layouts/_watch-online.scss';
-@import './layouts/backstage';
-@import './layouts/favorirte';
-@import './layouts/pick-and-feed';
-@import './layouts/testimonials';
+@import './layouts/_backstage';
+@import './layouts/_pets';
+@import './layouts/_pick-and-feed';
+@import './layouts/_testimonials';
+@import './layouts/_testimonials-popup';
 @import './layouts/_footer';

@@ -1,20 +1,62 @@
 .footer {
-    @include section(40px, 50px);
+    @include section(40px, $padding-side-page-desktop, 50px);
     background: $color-bg-black;
 
     display: grid;
-    grid-template-columns: 298px 100px 362px 32px 139px 232px;
+    grid-template-columns: 298px 8.7% 242px 13% 140px 230px;
     grid-template-rows: 85px 36px 54px 44px 134px;
+
+    @media screen and ($width: $desktop) {
+        @include section(40px, $padding-side-page-desktop, 50px);
+    }
+
+    @media screen and ($width: $small-desktop) {
+        @include section(40px, $padding-side-page-small-desktop, 50px);
+        grid-template-columns: 298px 1fr 242px 1fr 170px 230px;
+    }
+
+    @media screen and ($width: $tablet) {
+        @include section(12px, $padding-side-page-tablet, 12px);
+        grid-template-columns: max-content 1fr max-content;
+        grid-template-rows: 52px 34px 54px 67px 1fr;
+    }
+
+    @media screen and ($width: $mobile) {
+        @include section(20px, $padding-side-page-mobile, 20px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .logo {
         @include logo;
+        @include logo-text;
         @include grid-position(1, 1, 2, 2);
+
+        @media screen and ($width: $mobile) {
+            width: 128px;
+            height: 23px;
+            order: 1;
+            border: none;
+            margin-bottom: 30px;
+
+            &::after {
+                left: 73px;
+                bottom: 5px;
+            }
+        }
     }
 
     .subscribe {
         @include grid-position(1, 5, 2, 7);
         display: grid;
-        gap: 14px 7px;
+        grid-template-columns: 228px 129px;
+        gap: 14px 10px;
+
+        @media screen and ($width: $tablet) {
+            display: none;
+        }
+
 
         .subscribe__title {
             @include grid-position(1, 1, 2, 3);
@@ -86,6 +128,11 @@
         padding: 16px 0;
         box-sizing: $box-type;
         text-decoration: none;
+
+        @media screen and ($width: $mobile) {
+            order: 3;
+            margin-bottom: 30px;
+        }
     }
 
     .footer__socials {
@@ -93,6 +140,21 @@
         @include list-base(flex, 9px);
         flex-direction: column;
         align-self: end;
+
+        @media screen and ($width: $tablet) {
+            @include grid-position(1, 3, 5, 4);
+            justify-self: end;
+            align-self: start;
+            gap: 20px;
+            width: 26px;
+        }
+
+        @media screen and ($width: $mobile) {
+            flex-direction: row;
+            order: 2;
+            margin: 0 18% 30px;
+            gap: 30px;
+        }
 
         .footer__socials-link {
             @include link-base($color-white, $color-green);
@@ -103,10 +165,18 @@
             position: relative;
             height: 26px;
 
+            @media screen and ($width: $tablet) {
+                display: block;
+            }
+
             .footer__socials-icon {
                 margin-left: 13px;
                 transform: translate(-50%);
                 z-index: 1;
+
+                @media screen and ($width: $tablet) {
+                    transform: translate(-50%, 40%);
+                }
             }
 
             .footer__socials-text {
@@ -114,6 +184,10 @@
                 font-weight: $font-weight-medium;
                 font-size: $font-size-regular;
                 line-height: $line-height-large;
+
+                @media screen and ($width: $tablet) {
+                    display: none;
+                }
             }
 
             &::before {
@@ -144,10 +218,28 @@
     }
 
     .nav {
-        @include grid-position(5, 3, 6, 4);
+        @include grid-position(5, 3, 6, 6);
         @include navigation;
         display: flex;
         align-items: flex-end;
+
+        @media screen and ($width: $tablet) {
+            @include grid-position(5, 1, 6, 2);
+        }
+
+        @media screen and ($width: $mobile) {
+            order: 5;
+        }
+
+        .list {
+            @media screen and ($width: $tablet) {
+                gap: 37px;
+            }
+
+            @media screen and ($width: $mobile) {
+                gap: 30px;
+            }
+        }
     }
 
     .copyright {
@@ -160,6 +252,16 @@
         font-weight: $font-weight-thin;
         font-size: $font-size-regular;
         line-height: $line-height-medium;
+
+        @media screen and ($width: $tablet) {
+            @include grid-position(5, 3, 6, 4);
+        }
+
+        @media screen and ($width: $mobile) {
+            order: 4;
+            margin: 0 0 30px auto;
+            font-size: 15px;
+        }
 
         &:active {
             .copyright-span {

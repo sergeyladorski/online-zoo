@@ -1,10 +1,11 @@
 // constants
-@import 'vars';
-@import 'mixins';
+@import '_vars';
+@import '_mixins';
 
 // layouts
 @import './layouts/_page';
 @import './layouts/_header';
+@import './layouts/burger-menu';
 @import './layouts/_main';
 @import './layouts/_donate';
 @import './layouts/_footer';

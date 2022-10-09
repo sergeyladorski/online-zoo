@@ -1,0 +1,349 @@
+.pets {
+    @include section(97px, $padding-side-page-desktop, 100px);
+    position: relative;
+    @include flex-column;
+    box-sizing: $box-type;
+
+
+    @media screen and ($width: $small-desktop) {
+        @include section(100px, $padding-side-page-small-desktop, 140px);
+    }
+
+    @media screen and ($width: $tablet) {
+        @include section(60px, $padding-side-page-tablet, 100px);
+    }
+
+    @media screen and ($width: $mobile) {
+        @include section(20px, $padding-side-page-mobile, 60px);
+        overflow: hidden;
+    }
+
+    .section__container {
+        width: 100%;
+        height: 872px;
+        overflow: hidden;
+        margin-bottom: 80px;
+
+        @media screen and ($width: $small-desktop) {
+            height: 802px;
+        }
+
+        @media screen and ($width: $tablet) {
+            height: 756px;
+            margin-bottom: 60px;
+        }
+
+        @media screen and ($width: $mobile) {
+            height: 1388px;
+            margin-bottom: 19px;
+        }
+
+        .pets__slide-button {
+            @include button(50%);
+            width: 62px;
+            height: 62px;
+            position: absolute;
+            top: 50%;
+            background: $grad-watch;
+            z-index: 1;
+
+            &::before {
+                @include content;
+                top: 27px;
+                left: 23px;
+                width: 16px;
+                height: 8px;
+                @include bg-image($bg-slider-btn);
+            }
+
+            @media screen and ($width: $mobile) {
+                display: none;
+            }
+        }
+
+        .pets__slide-button_left {
+            @extend .pets__slide-button;
+            left: 8.63%;
+            transform: translateY(-102px);
+
+            @media screen and ($width: $small-desktop) {
+                left: 35%;
+                transform: translateY(-117px);
+            }
+
+            @media screen and ($width: $tablet) {
+                left: 38%;
+                transform: translateY(-112px);
+            }
+        }
+
+        .pets__slide-button_right {
+            @extend .pets__slide-button;
+            right: 8.63%;
+            transform: translateY(-102px) rotate(180deg);
+
+            @media screen and ($width: $small-desktop) {
+                right: 35%;
+                transform: translateY(-117px) rotate(180deg);
+            }
+
+            @media screen and ($width: $tablet) {
+                right: 38%;
+                transform: translateY(-112px) rotate(180deg);
+            }
+        }
+
+        $width-column-d: calc((100% - (2 * 3%)) / 3);
+        $width-column-t: calc((100% - 5%) / 2);
+
+        .pets__carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 72.5vw);
+            gap: 1%;
+            margin-left: -102%;
+            transition: all 1s ease;
+
+            @media screen and (min-width: $desktop-default) {
+                grid-template-columns: repeat(3, 1160px);
+            }
+            @media screen and ($width: $small-desktop) {
+                grid-template-columns: repeat(3, 94vw);
+            }
+            @media screen and ($width: $tablet) {
+                grid-template-columns: repeat(3, 93.6vw);
+            }
+            @media screen and ($width: $mobile) {
+                display: flex;
+                margin-left: 0;
+            }
+
+            .pets__card-list {
+                width: 100%;
+                @include list-base(grid, $gap-favorite-list);
+                column-gap: 3%;
+                grid-template-columns: repeat(3, $width-column-d);
+                grid-template-rows: repeat(2, 426px);
+                // transform: translateX(-103%);
+                transition: all 1s ease;
+
+                @media screen and ($width: $small-desktop) {
+                    row-gap: 92px;
+                    grid-template-rows: repeat(2, 354px);
+                }
+
+                @media screen and ($width: $tablet) {
+                    column-gap: 5%;
+                    row-gap: 92px;
+                    margin-bottom: 60px;
+                    grid-template-columns: repeat(2, $width-column-t);
+                    grid-template-rows: repeat(2, 332px);
+                    // transform: translateX(-105%);
+                }
+
+                @media screen and ($width: $mobile) {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-bottom: 19px;
+                    transform: translateX(0);
+                }
+
+                .pets__card {
+                    height: 426px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    @include card-border;
+                    padding-bottom: $padding-card-bottom;
+                    position: relative;
+                    box-sizing: $box-type;
+                    overflow: hidden;
+
+                    @media screen and ($width: $small-desktop) {
+                        height: 355px;
+                    }
+
+                    @media screen and ($width: $tablet) {
+                        height: 332px;
+                    }
+
+                    .pets__image {
+                        margin: 0 auto;
+                        width: 100%;
+                        height: 366px;
+                        object-fit: cover;
+                        object-position: center;
+                        margin-bottom: $margin-card-img-bottom;
+                        border-radius: $border-radius-regular $border-radius-regular 0 0;
+                        transition: all 0.5s ease;
+                        z-index: 0;
+
+                        @media screen and ($width: $small-desktop) {
+                            height: 293px;
+                        }
+
+                        @media screen and ($width: $tablet) {
+                            height: 285px;
+                            margin-bottom: 6px;
+                        }
+                    }
+
+                    &:hover {
+                        z-index: 1;
+
+                        &::after {
+                            @include content;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background: rgba(0, 0, 0, 0.3);
+                            z-index: 0;
+                        }
+
+                        .pets__image {
+                            transform: translate(-20px, 0px);
+                            width: 120%;
+                        }
+
+                        .pets__card-text {
+                            transform: translate(20px, -70px);
+                            z-index: 1;
+                            color: $color-white;
+                        }
+                    }
+
+                    .pets__card-text {
+                        margin-left: $margin-card-left;
+                        color: $color-black;
+                        font-family: $font-main;
+                        transition: all 0.5s ease;
+
+                        @media screen and ($width: $tablet) {
+                            margin-left: 12px;
+                        }
+
+                        .pets__card-title {
+                            margin: $margin-null;
+                            margin-bottom: $margin-card-title-bottom;
+                            font-weight: $font-weight-medium;
+                            font-size: $font-size-regular;
+                            line-height: $line-height-large;
+                            text-transform: uppercase;
+
+                            @media screen and ($width: $tablet) {
+                                font-size: $font-size-small-title-tablet;
+                                margin-bottom: -1px;
+                            }
+                        }
+
+                        .pets__card-desc {
+                            margin: $margin-null;
+                            font-weight: $font-weight-light;
+                            font-size: $font-size-small;
+                            line-height: $line-height-small;
+
+                            @media screen and ($width: $tablet) {
+                                font-size: $font-size-small-text-tablet;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            @media screen and ($width: $mobile) {
+                .pets__card-list_prev {
+                    display: none
+                }
+
+                .pets__card-list_next {
+                    display: none
+                }
+            }
+
+            .predator {
+                @include food-icon;
+                width: 40px;
+                height: 38px;
+                @include bg-image($bg-icon-predator);
+
+                @media screen and ($width: $tablet) {
+                    width: 33px;
+                    height: 33px;
+                }
+            }
+
+            .herbivore {
+                @include food-icon;
+                width: 33px;
+                height: 35px;
+                @include bg-image($bg-icon-herbivore);
+
+                @media screen and ($width: $tablet) {
+                    width: 25px;
+                    height: 29px;
+                }
+            }
+
+        }
+    }
+
+    &::before {
+        @include content;
+        left: 0;
+        bottom: 0;
+        width: 291px;
+        height: 459px;
+        @include bg-image($bg-favorite-left);
+
+        @media screen and ($width: 1340px) {
+            width: 194px;
+            height: 200px;
+            @include bg-image($bg-favorite-left-sd);
+        }
+
+        @media screen and ($width: $tablet) {
+            left: -60px;
+        }
+
+        @media screen and ($width: $mobile) {
+            left: -5px;
+            width: 57px;
+            height: 71px;
+        }
+    }
+
+    &::after {
+        @include content;
+        right: 0;
+        bottom: 0;
+        width: 370px;
+        height: 278px;
+        @include bg-image($bg-favorite-right);
+
+        @media screen and ($width: 1340px) {
+            width: 240px;
+            height: 180px;
+            @include bg-image($bg-favorite-right-sd);
+        }
+
+        @media screen and ($width: $tablet) {
+            width: 180px;
+            height: 130px;
+        }
+
+        @media screen and ($width: $mobile) {
+            width: 69px;
+            height: 66px;
+            right: -8px;
+            bottom: -2px;
+        }
+    }
+
+    .pets__choose-button {
+        @include button-rect;
+        margin: 0 auto;
+    }
+}

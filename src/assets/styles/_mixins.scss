@@ -10,8 +10,8 @@
     gap: $gap;
 }
 
-@mixin section ($top, $bottom) {
-    padding: $top $padding-side-page $bottom;
+@mixin section ($top, $side, $bottom) {
+    padding: $top $side $bottom;
 }
 
 @mixin content {
@@ -25,14 +25,29 @@
 }
 
 @mixin logo-text {
-    font: {
-        family: $font-main;
-        size: $font-size-logo;
-        weight: $font-weight-regular;
-    }
 
-    line-height: $line-height-small;
-    color: $color-white;
+    h1,
+    h2 {
+        font-family: $font-main;
+        font-size: $font-size-logo;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-small;
+        color: $color-white;
+    }
+}
+
+@mixin logo-text-header-small {
+    h1 {
+        font-size: $font-size-small-title-tablet;
+        line-height: $line-height-small;
+    }
+}
+
+@mixin logo-text-footer-small {
+    h2 {
+        font-size: $font-size-logo;
+        line-height: $line-height-small;
+    }
 }
 
 @mixin logo {
@@ -45,7 +60,6 @@
 
     .logo__title {
         margin: $margin-null;
-        @include logo-text;
         text-align: center;
 
         .nav__link {
@@ -68,6 +82,10 @@
     .list {
         @include list-base(flex, $gap-nav-list);
 
+        @media screen and ($width: $small-desktop) {
+            gap: 48px;
+        }
+
         .nav__link {
             @include link-base($color-white);
             @include header-text;
@@ -88,7 +106,7 @@
 }
 
 @mixin copyright ($color, $color-active) {
-    @include link-base($color-white, $color-active);
+    @include link-base($color, $color-active);
     margin: $margin-null;
     @include header-text;
 }
@@ -180,6 +198,11 @@
     @include content;
     bottom: 14px;
     right: 13px;
+
+    @media screen and ($width: $tablet) {
+        bottom: 9px;
+        right: 9px;
+    }
 }
 
 @mixin item-size ($width, $height: $width) {

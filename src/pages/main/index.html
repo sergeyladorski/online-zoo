@@ -9,6 +9,8 @@
     <link rel="icon" href="favicon.ico" type="image/ico" />
   </head>
   <body class="page">
+    <div class="page__bg-dark"></div>
+
     <header class="header">
       <div class="logo">
         <h1 class="logo__title">
@@ -41,6 +43,46 @@
         target="_blank"
         >Designed by &#169;</a
       >
+
+      <button class="burger-menu-button" type="button"></button>
+
+      <div class="burger-menu">
+        <div class="logo">
+          <p class="logo__title">
+            <a href="./index.html" class="nav__link"> PetStory online</a>
+          </p>
+        </div>
+
+        <nav class="burger-menu__nav">
+          <ul class="list">
+            <li class="list__item">
+              <a href="#" class="nav__link nav__link_active">About</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link">Map</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link">Zoos</a>
+            </li>
+            <li class="list__item">
+              <a href="./donate.html" class="nav__link">Donate</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="nav__link">Contact us</a>
+            </li>
+            <li class="list__item">
+              <a
+                href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online"
+                target="_blank"
+                class="nav__link"
+                >Designed by &#169;</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button class="burger-menu__close"></button>
+      </div>
     </header>
 
     <main class="main">
@@ -77,98 +119,24 @@
         </div>
       </section>
 
-      <section class="section favorite">
+      <section class="section pets">
         <div class="section__container">
           <button
-            class="favorite__slide-button favorite__slide-button_left"
+            class="pets__slide-button pets__slide-button_left"
             id="prev"
           ></button>
           <button
-            class="favorite__slide-button favorite__slide-button_right"
+            class="pets__slide-button pets__slide-button_right"
             id="next"
           ></button>
-          <ul class="favorite__card-list">
-            <li class="favorite__card">
-              <img
-                src="<%=require('../../assets/images/favorite/giant-panda.png')%>"
-                alt="giant panda"
-                class="favorite__image"
-              />
-              <div class="favorite__card-text">
-                <h2 class="favorite__card-title">Giant Pandas</h2>
-                <p class="favorite__card-desc">Native to Southwest China</p>
-              </div>
-              <div class="herbivore"></div>
-            </li>
-
-            <li class="favorite__card">
-              <img
-                src="<%=require('../../assets/images/favorite/eagle.png')%>"
-                alt="eagle"
-                class="favorite__image"
-              />
-              <div class="favorite__card-text">
-                <h2 class="favorite__card-title">Eagles</h2>
-                <p class="favorite__card-desc">Native to South America</p>
-              </div>
-              <div class="predator"></div>
-            </li>
-
-            <li class="favorite__card">
-              <img
-                src="<%=require('../../assets/images/favorite/gorilla.png')%>"
-                alt="gorilla"
-                class="favorite__image"
-              />
-              <div class="favorite__card-text">
-                <h2 class="favorite__card-title">Gorillas</h2>
-                <p class="favorite__card-desc">Native to Congo</p>
-              </div>
-              <div class="herbivore"></div>
-            </li>
-
-            <li class="favorite__card">
-              <img
-                src="<%=require('../../assets/images/favorite/sloth.png')%>"
-                alt="sloth"
-                class="favorite__image"
-              />
-              <div class="favorite__card-text">
-                <h2 class="favorite__card-title">Two-toed Sloth</h2>
-                <p class="favorite__card-desc">Mesoamerica, South America</p>
-              </div>
-              <div class="herbivore"></div>
-            </li>
-
-            <li class="favorite__card">
-              <img
-                src="<%=require('../../assets/images/favorite/cheetah.png')%>"
-                alt="cheetah"
-                class="favorite__image"
-              />
-              <div class="favorite__card-text">
-                <h2 class="favorite__card-title">cheetahs</h2>
-                <p class="favorite__card-desc">Native to Africa</p>
-              </div>
-              <div class="predator"></div>
-            </li>
-
-            <li class="favorite__card">
-              <img
-                src="<%=require('../../assets/images/favorite/penguin.png')%>"
-                alt="penguin"
-                class="favorite__image"
-              />
-              <div class="favorite__card-text">
-                <h2 class="favorite__card-title">Penguins</h2>
-                <p class="favorite__card-desc">Native to Antarctica</p>
-              </div>
-              <div class="predator"></div>
-            </li>
-          </ul>
+          <div class="pets__carousel">
+            <ul class="pets__card-list pets__card-list_prev"></ul>
+            <ul class="pets__card-list pets__card-list_main"></ul>
+            <ul class="pets__card-list pets__card-list_next"></ul>
+          </div>
         </div>
 
-        <button class="favorite__choose-button">choose your favorite</button>
+        <button class="pets__choose-button">choose your favorite</button>
       </section>
 
       <section class="section pick-and-feed">
@@ -231,133 +199,17 @@
 
       <section class="section testimonials">
         <h2 class="section__title">Testimonials</h2>
-        <ul class="testimonials__list">
-          <li class="testimonials__item">
-            <div class="testimonials__item-head">
-              <img
-                src="<%=require('../../assets/icons/users/user_default.svg')%>"
-                alt="user"
-                class="testimonials__user-icon"
-              />
-              <h3 class="testimonials__user-name">Michael John</h3>
-              <div class="testimonials__item-info">
-                <p class="testimonials__user-location">Local Austria</p>
-                <span class="testimonial__item-head-span">&#8226;</span>
-                <p class="testimonials__item-date">Today</p>
-              </div>
-            </div>
-            <p class="testimonials__item-text">
-              The best online zoo I&#8217;ve met. My son delighted very much
-              ljves to watch gouillas. Online zoo is one jf the ways to instill
-              a love for animals.The best online zoo I&#8217;ve met. My son
-              delighted very much ljves to watch gouillas. Online zoo is one jf
-              the ways to instill a love for animals. The best online zoo
-              I&#8217;ve met. My son delighted very much ljves to watch
-              gouillas. Online zoo is one jf the ways to instill a love for
-              animals.The best online zoo I&#8217;ve met. My son delighted very
-              much ljves to watch gouillas. Online zoo is one jf the ways to
-              instill a love for animals.
-            </p>
-          </li>
-
-          <li class="testimonials__item">
-            <div class="testimonials__item-head">
-              <img
-                src="<%=require('../../assets/icons/users/oskar.png')%>"
-                alt="user"
-                class="testimonials__user-icon"
-              />
-              <h3 class="testimonials__user-name">Oskar Samborsky</h3>
-              <div class="testimonials__item-info">
-                <p class="testimonials__user-location">Local Austria</p>
-                <span class="testimonial__item-head-span">&#8226;</span>
-                <p class="testimonials__item-date">Yesterday</p>
-              </div>
-            </div>
-            <p class="testimonials__item-text">
-              Online zoo is one jf the ways to instill a love for animals.The
-              best online zoo I&#8217;ve met. My son delighted very much ljves
-              to watch gouillas. Online zoo is one jf the ways to instill a love
-              for animals.The best online zoo I&#8217;ve met. My son delighted
-              very much ljves to watch gouillas. The best online zoo I&#8217;ve
-              met. My son delighted very much ljves to watch gouillas. Online
-              zoo is one jf the ways to instill a love for animals.The best
-              online zoo I&#8217;ve met. My son delighted very much ljves to
-              watch gouillas. Online zoo is one jf the ways to instill a love
-              for animals. The best online zoo I&#8217;ve met. My son delighted
-              very much ljves to watch gouillas. Online zoo is one jf the ways
-              to instill a love for animals.The best online zoo I&#8217;ve met.
-              My son delighted very much ljves to watch gouillas. Online zoo is
-              one jf the ways to instill a love for animals.
-            </p>
-          </li>
-
-          <li class="testimonials__item">
-            <div class="testimonials__item-head">
-              <img
-                src="<%=require('../../assets/icons/users/fredericka.png')%>"
-                alt="user"
-                class="testimonials__user-icon"
-              />
-              <h3 class="testimonials__user-name">Fredericka Michelin</h3>
-              <div class="testimonials__item-info">
-                <p class="testimonials__user-location">Local Austria</p>
-                <span class="testimonial__item-head-span">&#8226;</span>
-                <p class="testimonials__item-date">Yesterday</p>
-              </div>
-            </div>
-            <p class="testimonials__item-text">
-              The best online zoo I&#8217;ve met. My son delighted very much
-              ljves to watch gouillas. Online zoo is one jf the ways to instill
-              a love for animals.The best online zoo I&#8217;ve met. My son
-              delighted very much ljves to watch gouillas. Online zoo is one jf
-              the ways to instill a love for animals. The best online zoo
-              I&#8217;ve met. My son delighted very much ljves to watch
-              gouillas. Online zoo is one jf the ways to instill a love for
-              animals.The best online zoo I&#8217;ve met. My son delighted very
-              much ljves to watch gouillas. Online zoo is one jf the ways to
-              instill a love for animals.
-            </p>
-          </li>
-
-          <li class="testimonials__item">
-            <div class="testimonials__item-head">
-              <img
-                src="<%=require('../../assets/icons/users/mila.png')%>"
-                alt="user"
-                class="testimonials__user-icon"
-              />
-              <h3 class="testimonials__user-name">Mila Riksha</h3>
-              <div class="testimonials__item-info">
-                <p class="testimonials__user-location">Local Austria</p>
-                <span class="testimonial__item-head-span">&#8226;</span>
-                <p class="testimonials__item-date">Yesterday</p>
-              </div>
-            </div>
-            <p class="testimonials__item-text">
-              My son delighted very much ljves to watch gouillas. Online zoo is
-              one jf the ways to instill a love for animals.The best online zoo
-              I&#8217;ve met. My son delighted very much ljves to watch
-              gouillas. Online zoo is one jf the ways to instill a love for
-              animals.The best online zoo I&#8217;ve met. My son delighted very
-              much ljves to watch gouillas. Online zoo is one jf the ways to
-              instill a love for animals.The best online zoo I&#8217;ve met. My
-              son delighted very much ljves to watch gouillas. The best online
-              zoo I&#8217;ve met. My son delighted very much ljves to watch
-              gouillas. Online zoo is one jf the ways to instill a love for
-              animals.The best online zoo I&#8217;ve met. My son delighted very
-              much ljves to watch gouillas. Online zoo is one jf the ways to
-              instill a love for animals.
-            </p>
-          </li>
-        </ul>
+        <div class="testimonials__container">
+          <ul class="testimonials__list"></ul>
+        </div>
 
         <input
           class="testimonials__scrollbar"
           type="range"
           min="0"
-          max="100"
+          max="7"
           value="0"
+          step="1"
         />
 
         <button class="testimonials__button">leave feedback</button>
@@ -469,5 +321,47 @@
         <span class="copyright-span">©RSSchool & ©Yem Digital 2021</span>
       </a>
     </footer>
+
+    <template class="pets-template">
+      <li class="pets__card">
+        <img src="" alt="" class="pets__image" />
+        <div class="pets__card-text">
+          <h2 class="pets__card-title"></h2>
+          <p class="pets__card-desc"></p>
+        </div>
+        <div class="type"></div>
+      </li>
+    </template>
+
+    <template class="testimonials-template">
+      <li class="testimonials__item">
+        <div class="testimonials__item-head">
+          <img src="" alt="user" class="testimonials__user-icon" />
+          <h3 class="testimonials__user-name"></h3>
+          <div class="testimonials__item-info">
+            <p class="testimonials__user-location"></p>
+            <span class="testimonial__item-head-span">&#8226;</span>
+            <p class="testimonials__item-date"></p>
+          </div>
+        </div>
+        <p class="testimonials__item-text"></p>
+      </li>
+    </template>
+
+    <div class="testimonials__popup">
+      <div class="testimonials__popup-container">
+        <div class="testimonials__item-head">
+          <img src="" alt="user" class="testimonials__user-icon" />
+          <h3 class="testimonials__user-name"></h3>
+          <div class="testimonials__item-info">
+            <p class="testimonials__user-location"></p>
+            <span class="testimonial__item-head-span">&#8226;</span>
+            <p class="testimonials__item-date"></p>
+          </div>
+        </div>
+        <p class="testimonials__item-text"></p>
+        <button class="testimonials__popup-close-button"></button>
+      </div>
+    </div>
   </body>
 </html>

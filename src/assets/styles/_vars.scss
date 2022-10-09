@@ -1,3 +1,10 @@
+// screen width
+$width: 'max-width';
+$desktop-default: 1600px;
+$desktop: 1599px;
+$small-desktop: 1340px;
+$tablet: 980px;
+$mobile: 580px;
 // size
 $width-page: 1600px;
 $width-testimonials-card: 266px;
@@ -11,18 +18,22 @@ $width-testimonials-scroll-thumb: 115px;
 $height-testimonials-scroll-thumb: 6px;
 // margin
 $margin-null: 0;
-$margin-card-img-bottom: 5px;
+$margin-card-img-bottom: 6px;
 $margin-card-left: 16px;
-$margin-card-title-bottom: -5px;
+$margin-card-title-bottom: 0;
 $margin-watch-btn: 100px;
 // padding
 $padding-null: 0;
 $padding-small: 14px;
 $padding-card-bottom: $padding-small;
 $padding-side-page: 220px;
+$padding-side-page-desktop: 13.75%;
+$padding-side-page-small-desktop: 3%;
+$padding-side-page-tablet: 3.125%;
+$padding-side-page-mobile: 3.125%;
 $box-type: border-box;
 // grid
-$gap-collumn-favorite: 28px;
+$gap-collumn-favorite: 2.4%;
 $gap-row-favorite: 18px;
 $gap-favorite-list: $gap-row-favorite $gap-collumn-favorite;
 $gap-nav-list: 58px;
@@ -37,8 +48,10 @@ $color-orange-hover: #E47209;
 $color-yellow: #FFEE2E;
 $color-green: #4B9200;
 $color-black-blue: #333B41;
+$color-black-gray: #404950;
 $color-gray: #767474;
 $color-gray-smoky: #828282;
+$color-light-smoke: #BDBDBD;
 $color-light-gray: #F1F3F2;
 $color-glass-white: #FDFDFF;
 $color-red: #D31414;
@@ -65,29 +78,48 @@ $border-radius-medium: 25px;
 $border-radius-half: 50%;
 // background
 $bg-logo: '../images/bamboo.svg';
+$bg-burer-menu-button: '../icons/burger-menu.svg';
 $bg-watch-online: '../images/giant-panda.png';
+$bg-watch-online-sd: '../images/giant-panda-sd.png';
 $bg-backstage: '../images/decorate/flower.png';
+$bg-backstage-t: '../images/decorate/flower-t.png';
 $bg-testimonials: '../images/decorate/leaf.png';
+$bg-testimonials-sd: '../images/decorate/leaf-sd.png';
 $bg-slider-btn: '../icons/arrow.svg';
 $bg-icon-herbivore: '../icons/food/herbivore.svg';
 $bg-icon-predator: '../icons/food/predator.svg';
 $bg-favorite-left: '../images/decorate/palm.png';
+$bg-favorite-left-sd: '../images/decorate/palm-sd.png';
 $bg-favorite-right: '../images/decorate/strelitzia.png';
+$bg-favorite-right-sd: '../images/decorate/strelitzia-sd.png';
 $bg-icon-steps: '../icons/instructions/arrow.svg';
+$bg-icon-steps-t: '../icons/instructions/arrow-t.svg';
 $bg-icon-multiply: '../icons/multiply-icon.svg';
+$bg-icon-close: '../icons/close-icon.svg';
 $bg-icon-roller: '../icons/roller-icon.svg';
 $bg-icon-dollar: '../icons/dollar-icon.svg';
 // bg position
-$bg-position-watch: 0px -80px;
-$bg-position-backstage: top 12px right 0px;
+$bg-position-watch: 0 -80px;
+$bg-position-watch-t: 0 -34px;
+$bg-position-backstage: top 12px right 0;
+$bg-position-backstage-t: top 0 right 0;
 $bg-position-border-grad: -2px;
 $bg-position-testimonials: right -300px bottom -300px;
 $bg-position-dollar: right 10px bottom 17px;
+$bg-position-dollar-t: right 10px bottom 11px;
 // bg size
+$bg-size-burer-menu-button: 18px 10px;
 $bg-size-watch: 100% 780px;
+$bg-size-watch-sd: 100% 584px;
+$bg-size-watch-t: 100% 374px;
 $bg-size-backstage: 203px 617px;
+$bg-size-backstage-t: 132px 476px;
+$bg-size-backstage-m: 70px 217px;
 $bg-size-icon-steps: 69px 35px;
+$bg-size-icon-steps-t: 90px 40px;
 $bg-size-testimonials: 250px 400px;
+$bg-size-testimonials-sd: 200px 330px;
+$bg-size-testimonials-t: 125px 200px;
 $bg-size-dollar: 10px 20px;
 // font
 $font-main: 'Roboto';
@@ -98,12 +130,17 @@ $font-weight-light: 300;
 $font-weight-thin: 100;
 // font-size
 $font-size-h1: 106px;
+$font-size-h1-sd: 85px;
+$font-size-h1-t: 54px;
+$font-size-highlight: 72px;
 $font-size-h2: 48px;
 $font-size-h3: 36px;
 $font-size-subtitle: 24px;
 $font-size-logo: 19px;
 $font-size-regular: 16px;
 $font-size-small: 15px;
+$font-size-small-title-tablet: 12.5px;
+$font-size-small-text-tablet: 11.5px;
 // line height
 $line-height-large: 1.4;
 $line-height-medium: 1.3;

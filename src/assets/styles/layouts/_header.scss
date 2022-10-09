@@ -1,23 +1,77 @@
 .header {
-    @include section($padding-small, $padding-small);
+    @include section($padding-small, $padding-side-page-desktop, $padding-small);
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     box-sizing: $box-type;
     background: $color-black;
 
+    @media screen and ($width: $small-desktop) {
+        padding-left: $padding-side-page-small-desktop;
+        padding-right: $padding-side-page-small-desktop;
+    }
+
+    @media screen and ($width: $tablet) {
+        position: fixed;
+        width: 100%;
+        @include section(0, $padding-side-page-tablet, 0);
+        height: 34px;
+        justify-content: space-between;
+    }
+
     .logo {
         @include logo;
-        margin-right: 63px;
+        @include logo-text;
+        margin-right: 5.43%;
+
+        @media screen and ($width: $small-desktop) {
+            margin-right: 6.8%;
+        }
+
+        @media screen and ($width: $tablet) {
+            width: 47px;
+            height: 29px;
+            border: none;
+            @include logo-text-header-small;
+        }
+
+        &::after {
+            @media screen and ($width: $tablet) {
+                width: 5px;
+                height: 13px;
+                left: 4px;
+                bottom: 3px;
+            }
+        }
     }
 
     .nav {
         @include navigation;
+
+        @media screen and ($width: $tablet) {
+            display: none;
+        }
     }
 
     .copyright {
         @include copyright($color-white, $color-orange);
         margin-left: auto;
+
+        @media screen and ($width: $tablet) {
+            display: none;
+        }
+    }
+
+    .burger-menu-button {
+        display: none;
+
+        @media screen and ($width: $tablet) {
+            display: block;
+            width: 18px;
+            height: 10px;
+            border: none;
+            @include bg-image($bg-burer-menu-button, $bg-size-burer-menu-button);
+        }
     }
 }

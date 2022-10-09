@@ -1,34 +1,86 @@
 .pick-and-feed {
-    @include section(69px, 100px);
+    @include section(70px, $padding-side-page-desktop, 100px);
     background: $grad-orange;
     opacity: 0.9;
+    overflow: hidden;
+
+    @media screen and ($width: $small-desktop) {
+        @include section(30px, $padding-side-page-small-desktop, 50px);
+    }
+
+    @media screen and ($width: $tablet) {
+        @include section(20px, 0, 20px);
+    }
+
+    @media screen and ($width: $mobile) {
+        @include section(20px, $padding-side-page-mobile, 20px);
+    }
 
     .pick-and-feed__container {
+        @include flex-column;
         width: 100%;
-        height: 835px;
-        padding: 41px 0 59px 0;
+        padding: 40px 0 60px 0;
         box-sizing: $box-type;
         @include flex-column;
         border-radius: $border-radius-small-medium;
         background: rgba(253, 253, 255, 0.52);
         backdrop-filter: blur(2px);
 
+        @media screen and ($width: $small-desktop) {
+            padding: 30px 48px 50px;
+        }
+
+        @media screen and ($width: $tablet) {
+            padding: 10px 20px 60px;
+        }
+
+        @media screen and ($width: $mobile) {
+            padding: 20px 0 40px;
+        }
+
         .section__title {
-            margin: 0 auto 30px;
+            margin: 0 auto 31px;
             color: $color-orange-donate;
             font-family: $font-main;
             font-weight: $font-weight-regular;
             font-size: $font-size-h2;
             line-height: $line-height-small;
+
+            @media screen and ($width: $small-desktop) {
+                margin-bottom: 20px;
+            }
+
+            @media screen and ($width: $tablet) {
+                font-size: 42px;
+            }
+
+            @media screen and ($width: $mobile) {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
         }
 
         .section__subtitle {
-            margin: 0 50px 40px 100px;
+            margin: 0 4% 40px 8.3%;
             color: $color-black-blue;
             font-family: $font-main;
             font-weight: $font-weight-regular;
             font-size: $font-size-subtitle;
             line-height: $line-height-small;
+
+            @media screen and ($width: $small-desktop) {
+                margin: 0 0 20px;
+            }
+
+            @media screen and ($width: $tablet) {
+                font-size: 22px;
+            }
+
+            @media screen and ($width: $mobile) {
+                font-size: 18px;
+                text-align: center;
+            }
         }
 
         .pick-and-feed__text {
@@ -36,21 +88,37 @@
             font-family: $font-main;
             font-size: $font-size-regular;
             line-height: $line-height-medium;
+
+            @media screen and ($width: $mobile) {
+                display: none;
+            }
         }
 
         .pick-and-feed__text_bold {
-            margin: 0 50px 10px 100px;
+            margin: 0 4% 10px 8.3%;
             @extend .pick-and-feed__text;
             font-weight: $font-weight-medium;
+
+            @media screen and ($width: $small-desktop) {
+                margin: 0 0 10px;
+            }
         }
 
         .pick-and-feed__text_normal {
-            margin: 0 198px 60px 100px;
+            margin: 0 17% 60px 8.3%;
             @extend .pick-and-feed__text;
             font-weight: $font-weight-regular;
 
+            @media screen and ($width: $small-desktop) {
+                margin: 0 0 40px;
+            }
+
+            @media screen and ($width: $tablet) {
+                margin-bottom: 30px;
+            }
+
             .nav__link {
-                @include link-base(#333B41);
+                @include link-base($color-black-blue);
                 position: relative;
                 text-decoration: none;
                 color: $color-black-blue;
@@ -62,6 +130,10 @@
                     bottom: -4px;
                     left: 0;
                     background: $color-orange-donate;
+
+                    @media screen and ($width: $tablet) {
+                        bottom: -1px;
+                    }
                 }
             }
         }
@@ -77,31 +149,68 @@
                 font-weight: $font-weight-regular;
                 font-size: $font-size-h3;
                 line-height: $line-height-medium;
+
+                @media screen and ($width: $tablet) {
+                    margin-bottom: 20px;
+                }
+
+                @media screen and ($width: $mobile) {
+                    font-size: 24px;
+                }
             }
 
+            $width-step: 168px;
+            $width-grid-pick-and-feed: 764px;
+
+            @function gap-width($width-grid, $width-col, $n) {
+                @return ($width-grid - ($n * $width-col)) / ($n - 1);
+            }
+
+            $gap-width: gap-width($width-grid-pick-and-feed, $width-step, 3);
+
             .pick-and-feed__list {
-                @include list-base (flex, 130px);
-                margin: 0 auto;
-                width: 764px;
+                @include list-base (flex, $gap-width);
+                margin: 0 auto 63px;
+                ;
+                width: $width-grid-pick-and-feed;
+
+                @media screen and ($width: $small-desktop) {
+                    margin-bottom: 73px;
+                }
+
+                @media screen and ($width: $tablet) {
+                    gap: 42px;
+                    margin-bottom: 41px;
+                }
+
+                @media screen and ($width: $mobile) {
+                    width: 100%;
+                    margin-bottom: 24px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 43px;
+                }
             }
 
             .pick-and-feed__step {
-                margin-bottom: 92px;
-                width: 168px;
+                width: $width-step;
                 @include flex-column;
                 position: relative;
-                z-index: 1;
 
                 .pick-and-feed__image {
                     position: relative;
                     object-fit: contain;
                     object-position: center;
+                    margin-bottom: 30px;
+
+                    @media screen and ($width: $mobile) {
+                        margin-bottom: 10px;
+                    }
                 }
 
                 .pick-and-feed__desc {
                     margin: $margin-null;
-                    position: relative;
-                    bottom: -31px;
                     color: $color-black-blue;
                     font-family: $font-main;
                     font-weight: $font-weight-regular;
@@ -109,13 +218,33 @@
                     line-height: $line-height-large;
                 }
 
-                &:not(:last-of-type):before {
+                &:not(:first-of-type):after {
                     @include content;
-                    width: 69px;
+                    width: 70px;
                     height: 35px;
-                    top: 63px;
-                    right: -98px;
+                    top: 60px;
+                    left: -100px;
                     @include bg-image ($bg-icon-steps, $bg-size-icon-steps);
+
+                    @media screen and ($width: $tablet) {
+                        width: 90px;
+                        height: 40px;
+                        top: -22px;
+                        left: -75px;
+                        @include bg-image ($bg-icon-steps-t, $bg-size-icon-steps-t);
+                    }
+
+                    @media screen and ($width: $mobile) {
+                        top: -58px;
+                        left: 139px;
+                        transform: rotate(85deg);
+                    }
+                }
+
+                &:last-of-type {
+                    @media screen and ($width: $mobile) {
+                        top: -15px;
+                    }
                 }
             }
 

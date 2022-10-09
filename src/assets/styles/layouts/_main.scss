@@ -1,7 +1,35 @@
 .main {
+    width: 100%;
+    overflow: hidden
+    ;
     .main__bg {
         width: 1600px;
         height: 386px;
         @include bg-image('../images/giant-panda-short.png');
+    }
+
+    @media screen and ($width: $small-desktop) {
+        overflow: hidden;
+
+        .main__bg {
+            width: 100vw;
+            background-position: -170px 0;
+            height: 390px;
+        }
+    }
+
+    @media screen and ($width: $tablet) {
+        .main__bg {
+            background-position: -270px 0;
+            height: 335px;
+            margin-top: 33px;
+        }
+    }
+
+    @media screen and ($width: $mobile) {
+        .main__bg {
+            background-position: -150px 0;
+            height: 187px;
+        }
     }
 }

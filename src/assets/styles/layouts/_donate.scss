@@ -1,95 +1,201 @@
 .donate {
-    @include section(40px, 180px);
+    @include section(40px, $padding-side-page-desktop, 180px);
     box-sizing: $box-type;
     background: $grad-orange;
 
+    @media screen and ($width: $small-desktop) {
+        @include section(40px, $padding-side-page-small-desktop, 30px);
+    }
+
+    @media screen and ($width: $tablet) {
+        @include section(30px, $padding-side-page-tablet, 46px);
+    }
+
+    @media screen and ($width: $mobile) {
+        @include section(30px, $padding-side-page-mobile, 21px);
+    }
+
     .donate__title {
         margin: 0 auto 10px;
-        font-family: 'Roboto';
-        font-weight: 400;
-        font-size: 36px;
-        line-height: 130%;
-        color: #FFFFFF;
+        font-family: $font-main;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-h3;
+        line-height: $line-height-medium;
+        color: $color-white;
+
+        @media screen and ($width: $small-desktop) {
+            margin: 0 0 30px;
+            width: 83%;
+        }
+
+        @media screen and ($width: $tablet) {
+            font-size: $font-size-subtitle;
+            line-height: $line-height-small;
+            width: 100%;
+            margin-bottom: 20px;
+        }
     }
 
     .donate__text {
         margin: $margin-null;
         margin-bottom: 46px;
-        font-family: 'Roboto';
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 140%;
-        color: #FFFFFF;
+        font-family: $font-main;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-regular;
+        line-height: $line-height-large;
+        color: $color-white;
+
+        @media screen and ($width: $tablet) {
+            margin-bottom: 30px;
+        }
+
+        @media screen and ($width: $mobile) {
+            margin-bottom: 24px;
+        }
     }
 
     .donate__subtitle {
         margin: $margin-null;
         margin-bottom: 60px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 36px;
-        line-height: 130%;
-        color: #FE9013;
+        font-family: $font-main;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-h3;
+        line-height: $line-height-medium;
+        color: $color-orange-donate;
+
+        @media screen and ($width: $small-desktop) {
+            margin-bottom: 40px;
+        }
+
+        @media screen and ($width: $tablet) {
+            margin-bottom: 28px;
+        }
+
+        @media screen and ($width: $mobile) {
+            font-size: 24px;
+            margin-bottom: 29px;
+        }
     }
 
     .donate__form {
         box-sizing: $box-type;
-        padding: 40px 92px 62px;
+        padding: 40px 7.93% 62px;
         @include flex-column;
         align-items: center;
         border-radius: $border-radius-small-medium;
         background: rgba(253, 253, 255, 0.52);
         backdrop-filter: blur(2px);
 
+        @media screen and ($width: $small-desktop) {
+            padding: 20px 47px 46px;
+        }
+
+        @media screen and ($width: $tablet) {
+            padding: 30px 0 30px;
+        }
+
+        @media screen and ($width: $mobile) {
+            padding: 20px 0 20px;
+        }
+
         .donate__form-title {
             margin: $margin-null;
             margin-bottom: 20px;
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 48px;
-            line-height: 120%;
-            color: #FE9013;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-h2;
+            line-height: $line-height-small;
+            color: $color-orange-donate;
+
+            @media screen and ($width: $small-desktop) {
+                margin-bottom: 10px;
+            }
+
+            @media screen and ($width: $tablet) {
+                margin-bottom: 20px;
+            }
+
+            @media screen and ($width: $mobile) {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
         }
 
         .donate__form-text {
             margin: $margin-null;
             align-self: flex-start;
             margin-bottom: 60px;
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 120%;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-subtitle;
+            line-height: $line-height-small;
             color: $color-black-blue;
+
+            @media screen and ($width: $tablet) {
+                margin: 0 auto 50px;
+                width: 86%;
+                text-align: center;
+            }
+
+            @media screen and ($width: $mobile) {
+                width: 100%;
+                text-align: center;
+                font-size: 16px;
+                line-height: $line-height-large;
+                margin-bottom: 10px;
+            }
         }
 
         .donate__visual {
+            width: 56%;
             display: grid;
-            grid-template-columns: 160px 10px 14px 65px 300px;
+            grid-template-columns: 160px 1.8% 15px 11.9% 300px;
             grid-template-rows: 106px 58px 10px 22px 50px;
             margin-bottom: 48px;
+
+            @media screen and ($width: $small-desktop) {
+                width: 65%;
+            }
+
+            @media screen and ($width: $tablet) {
+                width: 91%;
+                margin-bottom: 41px;
+            }
+
+            @media screen and ($width: $mobile) {
+                width: auto;
+                grid-template-columns: 90px 6px 8px 36px 160px;
+                grid-template-rows: 60px 32px 6px 12px 28px;
+                margin-bottom: 4px;
+            }
 
             .donate__days {
                 margin: $margin-null;
                 @include grid-position(2, 1, 3, 2);
-                font-family: 'Roboto';
-                font-style: normal;
-                font-weight: 500;
-                font-size: 72px;
-                line-height: 80%;
+                font-family: $font-main;
+                font-weight: $font-weight-medium;
+                font-size: $font-size-highlight;
+                line-height: $line-height-extra-small;
                 text-align: center;
-                color: #000000;
+                color: $color-black;
+
+                @media screen and ($width: $mobile) {
+                    font-size: 41px;
+                }
             }
 
             .donate__visual-desc {
                 margin: $margin-null;
                 @include grid-position(4, 1, 5, 2);
-                font-family: 'Roboto';
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 140%;
+                font-family: $font-main;
+                font-weight: $font-weight-regular;
+                font-size: $font-size-regular;
+                line-height: $line-height-large;
                 color: $color-black-blue;
 
+                @media screen and ($width: $mobile) {
+                    font-size: 9px;
+                }
             }
 
             .donate__multiply {
@@ -99,10 +205,20 @@
                 align-self: center;
                 justify-self: center;
                 @include bg-image($bg-icon-multiply);
+
+                @media screen and ($width: $mobile) {
+                    width: 8px;
+                    height: 8px;
+                }
             }
 
             .donate__visual-icon {
                 @include grid-position(1, 5, 6, 6);
+
+                @media screen and ($width: $mobile) {
+                    width: 160px;
+                    height: 138px;
+                }
             }
         }
 
@@ -110,35 +226,79 @@
             margin: $margin-null;
             margin-bottom: 10px;
             align-self: flex-start;
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 140%;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-regular;
+            line-height: $line-height-large;
             color: $color-black;
+
+            @media screen and ($width: $small-desktop) {
+                margin-left: 18px;
+            }
+
+            @media screen and ($width: $tablet) {
+                margin-left: 10px;
+                margin-bottom: 2px;
+            }
+
+            @media screen and ($width: $mobile) {
+                margin-left: 0;
+                margin-bottom: 3px;
+            }
         }
 
         .donate__bar {
             position: relative;
-            width: 952px;
+            width: 97.5%;
             margin-bottom: 50px;
+
+
+            @media screen and ($width: $mobile) {
+                margin-bottom: 23px;
+            }
 
             &::before {
                 @include content;
-                width: 976px;
+                width: 102.5%;
                 height: 27px;
-                left: -14px;
+                left: -1.2%;
                 top: 6px;
-                background-color: #404950;
+                background-color: $color-black-gray;
                 border-radius: $border-radius-small;
+
+                @media screen and ($width: $small-desktop) {
+                    width: 98%;
+                    left: 1%;
+                }
+
+                @media screen and ($width: $tablet) {
+                    width: 102.5%;
+                    left: -1.2%;
+                }
+
+                @media screen and ($width: $mobile) {
+                    height: 13px;
+                }
             }
 
             &::after {
                 @include content;
-                width: 915px;
+                width: 95%;
                 height: 2px;
-                left: 15px;
+                left: 2.1%;
                 top: 18px;
                 background-color: $color-gray-smoky;
+
+                @media screen and ($width: $tablet) {
+                    width: 90%;
+                    left: 5%;
+                }
+
+                @media screen and ($width: $mobile) {
+                    top: 11px;
+                    width: 89%;
+                    left: 5%;
+                }
             }
 
             .donate__bar-input {
@@ -161,15 +321,29 @@
 
             .donate__bar-option-list {
                 margin-top: 20px;
-                width: 1030px;
+                width: 109%;
                 display: grid;
                 grid-template-columns: repeat(8, 1fr);
                 position: relative;
                 z-index: 1;
-                left: -44px;
-                font-weight: 500;
-                font-size: 26px;
-                line-height: 140%;
+                left: -5%;
+                font-weight: $font-weight-medium;
+                font-size: $font-size-subtitle;
+                line-height: $line-height-large;
+
+                @media screen and ($width: $small-desktop) {
+                    width: 125%;
+                    left: -3%;
+                }
+
+                @media screen and ($width: $tablet) {
+                    width: 177%;
+                    left: -5%;
+                }
+
+                @media screen and ($width: $mobile) {
+                    margin-top: 0;
+                }
 
                 .donate__bar-option {
                     -webkit-box-flex: 1;
@@ -180,31 +354,61 @@
                     text-align: center;
                     cursor: pointer;
 
-                    font-family: 'Roboto';
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 26px;
-                    line-height: 140%;
+                    font-family: $font-main;
+                    font-weight: $font-weight-medium;
+                    font-size: $font-size-subtitle;
+                    line-height: $line-height-large;
                     text-transform: uppercase;
-
                     color: $color-black-blue;
+
+                    @media screen and ($width: $mobile) {
+                        font-size: 13px;
+                    }
 
                     &::before {
                         @include content;
                         width: 10px;
                         height: 10px;
-                        left: 62px;
+                        left: 49%;
                         top: -32px;
                         border-radius: $border-radius-half;
                         background-color: $color-yellow;
+
+                        @media screen and ($width: $small-desktop) {
+                            left: 36%;
+                        }
+
+                        @media screen and ($width: $tablet) {
+                            left: 44%;
+                        }
+
+                        @media screen and ($width: $mobile) {
+                            width: 5px;
+                            height: 5px;
+                            top: -17px;
+                            left: 45%;
+                        }
                     }
 
                     &::after {
                         @include content;
                         width: 50px;
                         height: 50px;
-                        left: 40px;
+                        left: 49%;
                         top: -50px;
+                        transform: translateX(-20px);
+
+                        @media screen and ($width: $small-desktop) {
+                            left: 36%;
+                        }
+
+                        @media screen and ($width: $tablet) {
+                            left: 44%;
+                        }
+
+                        @media screen and ($width: $mobile) {
+                            top: -36px;
+                        }
                     }
 
                     &:hover {
@@ -216,18 +420,50 @@
                     }
                 }
 
-                .donate__bar-option-active {
+                .donate__bar-option[data-amount='5000'] {
+                    @media screen and ($width: $small-desktop) {
+                        display: none;
+                    }
+                }
+
+
+                @media screen and ($width: $tablet) {
+                    .donate__bar-option[data-amount='2000'] {
+                        display: none;
+                    }
+
+                    .donate__bar-option[data-amount='1000'] {
+                        display: none;
+                    }
+                }
+
+                .donate__bar-option_active {
                     color: $color-green;
                     z-index: 1;
-                    // cursor: default;
-
+                    
                     &::after {
                         @include content;
                         width: 40px;
                         height: 40px;
-                        left: 46px;
-                        top: -48px;
+                        left: 49%;
+                        top: -47px;
                         @include bg-image($bg-icon-roller);
+                        transform: translateX(-16px);
+
+                        @media screen and ($width: $small-desktop) {
+                            left: 36%;
+                        }
+
+                        @media screen and ($width: $tablet) {
+                            left: 44%;
+                        }
+
+                        @media screen and ($width: $mobile) {
+                            width: 20px;
+                            height: 20px;
+                            top: -24px;
+                            transform: translateX(-6px);
+                        }
                     }
                 }
             }
@@ -244,7 +480,19 @@
             margin-bottom: 25px;
             @include bg-image($bg-icon-dollar, $bg-size-dollar, $bg-position-dollar);
 
-            &:focus:valid {
+            @media screen and ($width: $tablet) {
+                width: 180px;
+                height: 42px;
+                padding: 10px 10px 10px 6px;
+                margin-bottom: 31px;
+                background-position: $bg-position-dollar-t;
+            }
+
+            @media screen and ($width: $mobile) {
+                margin-bottom: 24px;
+            }
+
+            &:valid {
                 outline: none;
                 filter: invert(49%) sepia(44%) saturate(6500%) hue-rotate(62deg) brightness(97%) contrast(101%);
             }
@@ -256,7 +504,7 @@
 
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
-                -webkit-appearance: none;
+                appearance: none;
                 margin: 0;
             }
         }
@@ -265,10 +513,14 @@
             width: 214px;
             padding: $padding-null;
             margin: $margin-null;
-            margin-bottom: 28px;
+            margin-bottom: 30px;
             border: $border-none;
             display: flex;
             gap: 50px;
+
+            @media screen and ($width: $mobile) {
+                margin-bottom: 28px;
+            }
 
             .donate__period-option-label {
                 display: flex;
@@ -293,8 +545,8 @@
             }
 
             .donate__period-option+.donate__period-option-span {
-                width: 16px;
-                height: 16px;
+                width: $font-size-regular;
+                height: $font-size-regular;
                 box-sizing: $box-type;
                 border-radius: $border-radius-half;
                 border: 1px solid $color-orange-donate;
@@ -312,29 +564,34 @@
         }
 
         .donate__period-option-label {
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 140%;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-regular;
+            line-height: $line-height-large;
             color: $color-black-blue;
         }
 
         .donate__submit {
             @include button-rect;
-            font-family: 'Roboto';
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 140%;
+            font-family: $font-main;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-regular;
+            line-height: $line-height-large;
             margin-bottom: 30px;
         }
 
         .donate__share {
             margin: $margin-null;
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 140%;
+            font-family: $font-main;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-regular;
+            line-height: $line-height-large;
             color: $color-black-blue;
+
+            @media screen and ($width: $mobile) {
+                width: 100%;
+                letter-spacing: -0.01px;
+            }
         }
     }
 }

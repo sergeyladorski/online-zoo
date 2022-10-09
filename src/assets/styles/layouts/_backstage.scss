@@ -1,19 +1,79 @@
 .backstage {
+    position: relative;
     box-sizing: $box-type;
-    @include section(140px, 80px);
+    @include section(140px, $padding-side-page-desktop, 80px);
     @include bg-image($bg-backstage, $bg-size-backstage, $bg-position-backstage);
     display: flex;
-    gap: 87px;
+    gap: 7.5%;
+
+    @media screen and ($width: 1340px) {
+        background: none;
+    }
+
+    @media screen and ($width: $small-desktop) {
+        @include section(100px, $padding-side-page-small-desktop, 42px);
+        gap: 3.1%;
+    }
+
+    @media screen and ($width: $tablet) {
+        display: block;
+        @include section(60px, $padding-side-page-small-desktop, 18px);
+        @include bg-image($bg-backstage-t, $bg-size-backstage-t, $bg-position-backstage-t);
+    }
+
+    @media screen and ($width: $mobile) {
+        @include section(64px, $padding-side-page-small-desktop, 18px);
+        background: none;
+        overflow-x: hidden;
+        top: -33px;
+        margin-bottom: -33px;
+
+        &::before {
+            @include content;
+            top: 0px;
+            right: -38px;
+            width: 70px;
+            height: 217px;
+            @include bg-image($bg-backstage, $bg-size-backstage-m, $bg-position-backstage-t);
+            z-index: 1;
+        }
+    }
+
 
     .backstage__image {
-        width: 609px;
-        height: 403px;
+        width: 52.5%;
+        height: 34.74%;
+        object-position: center;
+        object-fit: cover;
+
+        @media screen and ($width: $small-desktop) {
+            padding-top: 9px;
+            padding-bottom: 9px;
+            width: 48.35%;
+            height: 408px;
+        }
+
+        @media screen and ($width: $tablet) {
+            display: none;
+        }
     }
 
     .backstage__desc {
-        width: 465px;
+        width: 40%;
         height: min-content;
         color: $color-black-blue;
+
+        @media screen and ($width: $small-desktop) {
+            width: 48.55%;
+        }
+
+        @media screen and ($width: $tablet) {
+            width: 82.5%;
+        }
+
+        @media screen and ($width: $mobile) {
+            width: 99%;
+        }
 
         .backstage__title {
             margin: $margin-null;
@@ -22,6 +82,22 @@
             font-weight: $font-weight-medium;
             font-size: $font-size-h2;
             line-height: $line-height-small;
+
+            @media screen and ($width: $small-desktop) {
+                font-weight: $font-weight-regular;
+            }
+
+            @media screen and ($width: $tablet) {
+                margin-left: 4px;
+                margin-bottom: 22px;
+            }
+
+            @media screen and ($width: $mobile) {
+                font-weight: $font-weight-regular;
+                font-size: $font-size-subtitle;
+                margin-left: 0px;
+                margin-bottom: 10px;
+            }
         }
 
         .backstage__site {
@@ -30,7 +106,15 @@
             font-family: $font-main;
             font-weight: $font-weight-regular;
             font-size: $font-size-regular;
-            line-height: 130%;
+            line-height: $line-height-medium;
+
+            @media screen and ($width: $tablet) {
+                margin-bottom: 30px;
+            }
+
+            @media screen and ($width: $mobile) {
+                margin-bottom: 20px;
+            }
         }
 
         .backstage__work {
@@ -40,6 +124,16 @@
             font-weight: $font-size-regular;
             font-size: $font-size-subtitle;
             line-height: $line-height-small;
+
+            @media screen and ($width: $tablet) {
+                margin-left: 4px;
+                margin-bottom: 20px;
+            }
+
+            @media screen and ($width: $mobile) {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
         }
 
         .backstage__work-text {

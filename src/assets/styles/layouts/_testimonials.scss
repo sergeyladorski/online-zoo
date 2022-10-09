@@ -1,8 +1,20 @@
 .testimonials {
-    @include section(140px, 180px);
+    @include section(140px, $padding-side-page-desktop, 180px);
     @include flex-column;
     position: relative;
     overflow: hidden;
+
+    @media screen and ($width: $small-desktop) {
+        @include section(100px, $padding-side-page-small-desktop, 140px);
+    }
+
+    @media screen and ($width: $tablet) {
+        @include section(60px, $padding-side-page-tablet, 80px);
+    }
+
+    @media screen and ($width: $mobile) {
+        @include section(30px, $padding-side-page-mobile, 60px);
+    }
 
     &::after {
         @include content;
@@ -12,6 +24,29 @@
         height: 400px;
         @include bg-image($bg-testimonials, $bg-size-testimonials);
         transform: rotate(0deg);
+
+        @media screen and ($width: $small-desktop) {
+            @include bg-image($bg-testimonials-sd, $bg-size-testimonials-sd);
+            width: 200px;
+            height: 330px;
+            bottom: -90px;
+        }
+
+        @media screen and ($width: $tablet) {
+            width: 105px;
+            height: 280px;
+            bottom: -105px;
+            background-size: $bg-size-testimonials-t;
+        }
+
+        @media screen and ($width: $mobile) {
+            width: 70px;
+            height: 105px;
+            bottom: -40px;
+            right: -10px;
+            background-size: 70px 105px;
+            transform: rotate(-15deg);
+        }
     }
 
     .section__title {
@@ -20,113 +55,176 @@
         font-size: $font-size-h3;
         font-weight: $font-weight-regular;
         line-height: $line-height-medium;
+
+        @media screen and ($width: $small-desktop) {
+            margin-bottom: 30px;
+        }
+
+        @media screen and ($width: $tablet) {
+            font-size: 36px;
+        }
+
+        @media screen and ($width: $mobile) {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
     }
 
-    .testimonials__list {
-        @include list-base(flex, 33px);
-        margin-bottom: 24px;
+    .testimonials__container {
+        width: 100%;
+        overflow: hidden;
+        
+        .testimonials__list {
+            @include list-base(flex, 29px);
+            width: max-content;
+            margin-bottom: 23px;
+            overflow: hidden;
+            padding: 1px;
+            transition: all 0.7s ease;
 
-        .testimonials__item {
-            @include item-size($width-testimonials-card, $height-testimonials-card);
-            @include flex-column;
-            // margin-bottom: 21px;
-            padding: 15px 15px 19px 16px;
-            box-sizing: $box-type;
-            position: relative;
-            background: $color-light-gray;
-            border: 1px solid transparent;
-            border-radius: $border-radius-small-medium;
+            @media screen and ($width: $small-desktop) {
+                margin-bottom: 18px;
+            }
 
-            &::before {
-                content: "";
-                position: absolute;
-                top: $bg-position-border-grad;
-                bottom: $bg-position-border-grad;
-                left: $bg-position-border-grad;
-                right: $bg-position-border-grad;
-                background: $grad-pink;
+            @media screen and ($width: $tablet) {
+                width: calc(100% - 2px);
+                height: 349px;
+                margin-bottom: 46px;
+                flex-direction: column;
+                gap: 17px;
+            }
+
+            @media screen and ($width: $mobile) {
+                margin-bottom: 34px;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .testimonials__item {
+                @include item-size($width-testimonials-card, $height-testimonials-card);
+                @include flex-column;
+                padding: 15px 15px 19px 16px;
+                box-sizing: $box-type;
+                position: relative;
+                background: $color-light-gray;
+                border: 1px solid transparent;
                 border-radius: $border-radius-small-medium;
-                z-index: -1;
-            }
 
-            .testimonials__item-head {
-                width: 100%;
-                margin-bottom: 10px;
-                display: grid;
-                row-gap: 1px;
-                grid-template-columns: 37px 10px max-content;
-
-                .testimonials__user-icon {
-                    @include item-size($width-user-icon-test);
-                    @include grid-position(1, 1, 3, 2);
+                @media screen and ($width: $small-desktop) {
+                    @include item-size(293px, 391px);
+                    padding: 15px 22px 19px 16px;
                 }
 
-                .testimonials__user-name {
+                @media screen and ($width: $tablet) {
+                    width: 100%;
+                    height: 105px;
+                    padding: 9px 29px 12px 12px;
+                    cursor: pointer;
+                }
+
+                &::before {
+                    @include content;
+                    top: $bg-position-border-grad;
+                    bottom: $bg-position-border-grad;
+                    left: $bg-position-border-grad;
+                    right: $bg-position-border-grad;
+                    background: $grad-pink;
+                    border-radius: $border-radius-small-medium;
+                    z-index: -1;
+                }
+
+                .testimonials__item-head {
+                    width: 100%;
+                    margin-bottom: 10px;
+                    display: grid;
+                    row-gap: 1px;
+                    grid-template-columns: 37px 10px max-content;
+
+                    @media screen and ($width: $tablet) {
+                        margin-bottom: 10px;
+                    }
+
+                    @media screen and ($width: $mobile) {
+                        grid-template-columns: 37px 5px max-content;
+                    }
+
+                    .testimonials__user-icon {
+                        @include item-size($width-user-icon-test);
+                        @include grid-position(1, 1, 3, 2);
+                    }
+
+                    .testimonials__user-name {
+                        margin: $margin-null;
+                        @include grid-position(1, 3, 2, 3);
+                        font-family: $font-main;
+                        font-weight: $font-weight-regular;
+                        font-size: $font-size-regular;
+                        line-height: $line-height-small;
+                        color: $color-black;
+                    }
+
+                    .testimonials__item-info {
+                        @include grid-position(2, 3, 3, 3);
+                        display: flex;
+                        gap: 5px;
+
+                        .testimonials__user-location {
+                            margin: $margin-null;
+                            font-family: $font-main;
+                            font-weight: $font-weight-light;
+                            font-size: $font-size-small;
+                            line-height: $line-height-small;
+                            color: $color-light-smoke;
+                        }
+
+                        .testimonial__item-head-span {
+                            font-family: $font-main;
+                            font-weight: $font-weight-light;
+                            font-size: $font-size-small;
+                            line-height: $line-height-small;
+                            color: $color-light-smoke;
+                        }
+
+                        .testimonials__item-date {
+                            margin: $margin-null;
+                            font-family: $font-main;
+                            font-weight: $font-weight-light;
+                            font-size: $font-size-small;
+                            line-height: $line-height-small;
+                            color: $color-light-smoke;
+                        }
+                    }
+                }
+
+                .testimonials__item-text {
                     margin: $margin-null;
-                    @include grid-position(1, 3, 2, 3);
-                    font-family: 'Roboto';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 16px;
-                    line-height: 120%;
-                    color: #000000;
-                }
+                    width: 237px;
+                    height: 309px;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-family: $font-main;
+                    font-weight: $font-weight-light;
+                    font-size: $font-size-small;
+                    line-height: $line-height-small;
+                    color: $color-gray;
 
-                .testimonials__item-info {
-                    @include grid-position(2, 3, 3, 3);
-                    display: flex;
-                    gap: 5px;
-
-                    .testimonials__user-location {
-                        margin: $margin-null;
-                        font-family: 'Roboto';
-                        font-style: normal;
-                        font-weight: 300;
-                        font-size: 15px;
-                        line-height: 120%;
-                        color: #BDBDBD;
+                    @media screen and ($width: $small-desktop) {
+                        width: 255px;
                     }
 
-                    .testimonial__item-head-span {
-                        font-family: 'Roboto';
-                        font-style: normal;
-                        font-weight: 300;
-                        font-size: 15px;
-                        line-height: 120%;
-                        color: #BDBDBD;
-                    }
-
-                    .testimonials__item-date {
-                        margin: $margin-null;
-                        font-family: 'Roboto';
-                        font-style: normal;
-                        font-weight: 300;
-                        font-size: 15px;
-                        line-height: 120%;
-                        color: #BDBDBD;
+                    @media screen and ($width: $tablet) {
+                        width: 100%;
                     }
                 }
-            }
-
-            .testimonials__item-text {
-                margin: $margin-null;
-                width: 237px;
-                height: 309px;
-                white-space: normal;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                font-family: 'Roboto';
-                font-style: normal;
-                font-weight: 300;
-                font-size: 15px;
-                line-height: 120%;
-                color: #767474;
             }
         }
     }
 
     .testimonials__scrollbar {
-        margin: 0 auto 31px;
+        margin: 0 auto 30px;
         appearance: none;
         width: $width-testimonials-scroll;
         height: $height-testimonials-scroll;
@@ -136,14 +234,22 @@
         background: $color-light-gray;
         cursor: pointer;
 
+        @media screen and ($width: $small-desktop) {
+            width: 41.6%;
+            margin-bottom: 52px;
+        }
+
+        @media screen and ($width: $tablet) {
+            display: none;
+        }
+
         &::before {
             @include content;
             border-radius: $border-radius-regular;
         }
 
         &::after {
-            content: "";
-            position: absolute;
+            @include content;
             top: -1px;
             bottom: -1px;
             left: -1px;
@@ -155,7 +261,7 @@
 
         &::-webkit-slider-thumb {
             appearance: none;
-            width: $width-testimonials-scroll-thumb;
+            width: 12.5%;
             height: $height-testimonials-scroll-thumb;
             border-radius: $border-radius-regular;
             background: $color-orange-donate;
@@ -169,5 +275,10 @@
 
     .testimonials__button {
         @include button-rect($border-radius-regular);
+
+        @media screen and ($width: $tablet) {
+            margin: 0 auto;
+            width: 240px;
+        }
     }
 }

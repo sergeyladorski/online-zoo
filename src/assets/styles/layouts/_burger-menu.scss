@@ -1,0 +1,101 @@
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -329px;
+    left: 0;
+    transition: all 1s ease;
+    width: 100%;
+    height: 329px;
+    box-sizing: $box-type;
+    padding: 10px 10px 40px;
+    background: $color-white;
+    z-index: 3;
+
+    .logo {
+        width: 66px;
+        height: 42px;
+        @include flex-center;
+        position: relative;
+        box-sizing: $box-type;
+        border: 1px solid $color-orange-donate;
+        border-radius: $border-radius-small;
+        margin-bottom: 30px;
+
+        .logo__title {
+            margin: $margin-null;
+            text-align: center;
+
+            .nav__link {
+                @include link-base($color-orange-donate);
+                font-family: $font-main;
+                font-weight: $font-weight-regular;
+                font-size: $font-size-small;
+                line-height: $line-height-small;
+            }
+        }
+
+        &::after {
+            width: 5px;
+            height: 14px;
+            left: 10px;
+            bottom: 5px;
+            filter: invert(54%) sepia(75%) saturate(562%) hue-rotate(349deg) brightness(101%) contrast(99%);
+        }
+    }
+
+    .burger-menu__nav {
+        .list {
+            @include list-base(flex, 15px);
+            flex-direction: column;
+
+            .nav__link {
+                @include link-base($color-black-blue);
+                font-family: $font-main;
+                font-weight: $font-weight-regular;
+                font-size: $font-size-regular;
+                line-height: $line-height-large;
+            }
+
+            .nav__link_active {
+                color: $color-orange;
+            }
+
+            .nav__link_active[href='#'] {
+                &:hover {
+                    opacity: $opacity-none;
+                    transition: $transition-std;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    .burger-menu__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        padding: $padding-null;
+        border: none;
+        @include bg-image($bg-icon-multiply);
+        background-size: 15px 15px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.5;
+            transition: 0.3s ease;
+        }
+
+        &:active {
+            opacity: 1;
+            transition: none;
+            filter: invert(54%) sepia(75%) saturate(562%) hue-rotate(349deg) brightness(101%) contrast(99%);
+        }
+    }
+}
+
+.burger-menu_active {
+    top: 0px;
+}
