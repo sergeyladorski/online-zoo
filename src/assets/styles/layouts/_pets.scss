@@ -1,3 +1,23 @@
+@keyframes left {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes right {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0%;
+    }
+}
+
 .pets {
     @include section(97px, $padding-side-page-desktop, 100px);
     position: relative;
@@ -97,56 +117,68 @@
         $width-column-t: calc((100% - 5%) / 2);
 
         .pets__carousel {
-            display: grid;
-            grid-template-columns: repeat(3, 72.5vw);
-            gap: 1%;
-            margin-left: -102%;
-            transition: all 1s ease;
+            width: 100%;
+            display: flex;
 
-            @media screen and (min-width: $desktop-default) {
-                grid-template-columns: repeat(3, 1160px);
-            }
-            @media screen and ($width: $small-desktop) {
-                grid-template-columns: repeat(3, 94vw);
-            }
-            @media screen and ($width: $tablet) {
-                grid-template-columns: repeat(3, 93.6vw);
-            }
+            // @media screen and (min-width: $desktop-default) {
+            //     grid-template-columns: repeat(3, 1160px);
+            // }
+
+            // @media screen and ($width: $small-desktop) {
+            //     grid-template-columns: repeat(3, 94vw);
+            // }
+
+            // @media screen and ($width: $tablet) {
+            //     grid-template-columns: repeat(3, 93.6vw);
+            // }
+
             @media screen and ($width: $mobile) {
                 display: flex;
                 margin-left: 0;
             }
 
             .pets__card-list {
-                width: 100%;
                 @include list-base(grid, $gap-favorite-list);
                 column-gap: 3%;
                 grid-template-columns: repeat(3, $width-column-d);
                 grid-template-rows: repeat(2, 426px);
-                // transform: translateX(-103%);
-                transition: all 1s ease;
+                display: none;
+                position: relative;
+                // animation: 1s ease;
+
+                @media screen and (min-width: $desktop-default) {
+                    width: 1160px;
+                }
 
                 @media screen and ($width: $small-desktop) {
+                    width: 94vw;
                     row-gap: 92px;
                     grid-template-rows: repeat(2, 354px);
                 }
 
                 @media screen and ($width: $tablet) {
+                    width: 93.6vw;
                     column-gap: 5%;
                     row-gap: 92px;
                     margin-bottom: 60px;
                     grid-template-columns: repeat(2, $width-column-t);
                     grid-template-rows: repeat(2, 332px);
-                    // transform: translateX(-105%);
                 }
 
                 @media screen and ($width: $mobile) {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px;
-                    margin-bottom: 19px;
-                    transform: translateX(0);
+
+                    &:not(:first-child) {
+                        display: none
+                    }
+
+                    &:first-child {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        margin-bottom: 19px;
+                        transform: translateX(0);
+                    }
                 }
 
                 .pets__card {
@@ -253,6 +285,41 @@
                 }
             }
 
+            .active {
+                display: grid;
+            }
+
+            .next {
+                display: grid;
+                position: absolute;
+            }
+
+            .animate-first {
+                animation: 1s ease-in;
+            }
+
+            .animate-second {
+                animation: 1s ease;
+            }
+
+            .to-left {
+                animation-name: left;
+            }
+
+            .from-left {
+                animation-name: left;
+                animation-direction: reverse;
+            }
+
+            .to-right {
+                animation-name: right;
+                animation-direction: reverse;
+            }
+
+            .from-right {
+                animation-name: right;
+            }
+
             @media screen and ($width: $mobile) {
                 .pets__card-list_prev {
                     display: none
@@ -286,7 +353,6 @@
                     height: 29px;
                 }
             }
-
         }
     }
 

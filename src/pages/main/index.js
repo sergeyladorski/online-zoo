@@ -3,14 +3,13 @@ import '../../assets/styles/main.scss';
 import { burgerMenuButton, openMenu, burgerMenuClose, closeMenu } from '../../assets/js-code/burger-menu';
 import { testimonialsList, createTestimonials, testimonialsScrollbar, handleTestimonialsScrollbar } from '../../assets/js-code/carousel-testimonials';
 import { openPopupTestimonial, popupCloseButton, closePopupTestimonial } from '../../assets/js-code/popup-testimonials';
-import { carouselPets, carouselPetsContent, disableSliderPetsBtn, enableSliderPetsBtn, petsPrevBtn, petsNextBtn, fillContainerWithCards, disableTransition, enableTransition } from '../../assets/js-code/carousel-pets';
+import { carouselPetsItems, disableSliderPetsBtn, enableSliderPetsBtn, petsPrevBtn, petsNextBtn, fillContainerWithCards, createNewSlide, showNewSlide, hideCurrentCard, handlePetsPrevBtn, handlePetsNextBtn } from '../../assets/js-code/carousel-pets';
 
 const smalDesktopWidth = 1340;
 const tabletWidth = 980;
 let numberOfAnimalCards;
 const numberOfAnimalCardsTablet = 4;
 const numberOfAnimalCardsDesktop = 6;
-let sliderShift = 102;
 
 function adjustWindowWidth() {
     const windowWidth = window.innerWidth;
@@ -36,50 +35,49 @@ function adjustWindowWidth() {
 
 function loadContent() {
     adjustWindowWidth();
-    fillContainerWithCards(1, numberOfAnimalCards);
+
+    carouselPetsItems.forEach((item, index) => {
+        fillContainerWithCards(carouselPetsItems[index], numberOfAnimalCards);
+    });
+
     createTestimonials();
 };
 
-// go prev
-function handleTransitionprev() {
-    sliderShift = 102;
-    disableTransition(sliderShift);
-    enableSliderPetsBtn();
-    carouselPetsContent[1].innerHTML = carouselPetsContent[0].innerHTML;
-};
+// // carousel pets
+// let currentItem = 0;
 
-function handlePetsPrevBtn() {
-    sliderShift -= 102;
-    enableTransition(sliderShift);
-    disableSliderPetsBtn();
-    fillContainerWithCards(0, numberOfAnimalCards);
+// function changeCurrentItem(n) {
+//     currentItem = (n + carouselPetsItems.length) % carouselPetsItems.length;
+// };
 
-    carouselPets.addEventListener('transitionend', handleTransitionprev)
-};
+// // carousel pets buttons
+// function handlePetsPrevBtn() {
+//     disableSliderPetsBtn();
+//     hideCurrentCard('to-right', currentItem, numberOfAnimalCards);
+//     changeCurrentItem(currentItem - 1);
+//     showNewSlide('from-left', currentItem);
+// };
 
-// go next
-function handleTransitionNext() {
-    sliderShift = 102;
-    disableTransition(sliderShift);
-    enableSliderPetsBtn();
-    carouselPetsContent[1].innerHTML = carouselPetsContent[2].innerHTML;
+// function handlePetsNextBtn() {
+//     disableSliderPetsBtn();
+//     hideCurrentCard('to-left', currentItem, numberOfAnimalCards);
+//     changeCurrentItem(currentItem + 1);
+//     showNewSlide('from-right', currentItem);
+// };
+
+function handlePetsCarouselPrev() {
+    handlePetsPrevBtn(numberOfAnimalCards)
 }
-
-function handlePetsNextBtn() {
-    sliderShift += 102;
-    enableTransition(sliderShift);
-    disableSliderPetsBtn();
-    fillContainerWithCards(2, numberOfAnimalCards);
-
-    carouselPets.addEventListener('transitionend', handleTransitionNext)
-};
+function handlePetsCarouselNext() {
+    handlePetsNextBtn(numberOfAnimalCards)
+}
 
 document.addEventListener('DOMContentLoaded', loadContent);
 window.addEventListener('resize', loadContent);
 burgerMenuButton.addEventListener('click', openMenu);
 burgerMenuClose.addEventListener('click', closeMenu)
-petsPrevBtn.addEventListener('click', handlePetsPrevBtn);
-petsNextBtn.addEventListener('click', handlePetsNextBtn);
+petsPrevBtn.addEventListener('click', handlePetsCarouselPrev);
+petsNextBtn.addEventListener('click', handlePetsCarouselNext);
 testimonialsScrollbar.addEventListener('input', handleTestimonialsScrollbar);
 
 // additional information
