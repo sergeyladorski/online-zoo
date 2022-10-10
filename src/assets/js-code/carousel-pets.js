@@ -1,16 +1,14 @@
 import { animals } from '../../assets/utils/animals';
 import { getTemplate } from "../utils/get-template";
-export const animalssList = document.querySelector('.pets__card-list');
 const animalsTemplateSelector = 'pets-template';
 const animalItemSelector = 'pets__card';
-export const carouselPets = document.querySelector('.pets__carousel');
 export const carouselPetsItems = document.querySelectorAll('.pets__card-list');
 const sliderPetsBtn = document.querySelectorAll('.pets__slide-button');
 export const petsPrevBtn = document.querySelector('.pets__slide-button_left');
 export const petsNextBtn = document.querySelector('.pets__slide-button_right');
 let currentItem = 0;
 
-export function generateAnimalCard(item) {
+function generateAnimalCard(item) {
     const element = getTemplate(animalsTemplateSelector, animalItemSelector);
 
     const species = element.querySelector('.pets__card-title');
@@ -28,7 +26,7 @@ export function generateAnimalCard(item) {
     return element;
 };
 
-export function getAnimalsArr(n) {
+function getAnimalsArr(n) {
     return animals
         .map(item => ({ item, index: Math.random() }))
         .sort((a, b) => a.index - b.index)
@@ -47,7 +45,7 @@ export function fillContainerWithCards(container, cardsNum) {
     });
 };
 
-export function createNewSlide(cardsNum) {
+function createNewSlide(cardsNum) {
     carouselPetsItems.forEach((item, index) => {
         if (!item.classList.contains('active')) {
             fillContainerWithCards(carouselPetsItems[index], cardsNum);
@@ -56,19 +54,27 @@ export function createNewSlide(cardsNum) {
 };
 
 // slider buttons on/off
-export function disableSliderPetsBtn() {
+function disableSliderPetsBtn() {
     sliderPetsBtn.forEach(item => {
         item.setAttribute('disabled', true);
     })
 };
 
-export function enableSliderPetsBtn() {
+function enableSliderPetsBtn() {
     sliderPetsBtn.forEach(item => {
         item.removeAttribute('disabled');
     })
 };
 
-export function hideCurrentCard(direction, cardsNum) {
+function removeAnimationType(animationType) {
+    carouselPetsItems.forEach(item => {
+        if (item.classList.contains(animationType)) {
+            item.classList.remove(animationType);
+        }
+    })
+};
+
+function hideCurrentCard(direction, cardsNum) {
     let animationType;
 
     if (direction === 'to-right') {
@@ -86,12 +92,13 @@ export function hideCurrentCard(direction, cardsNum) {
 
     carouselPetsItems[currentItem].addEventListener('animationend', function () {
         activeEl.classList.add('animate-first');
-        this.classList.remove('active', direction, animationType);
+        this.classList.remove('active', direction);
+        removeAnimationType(animationType);
         enableSliderPetsBtn();
     });
 };
 
-export function showNewSlide(direction) {
+function showNewSlide(direction) {
     carouselPetsItems[currentItem].classList.add('next', direction);
     let animationType;
 
@@ -104,14 +111,13 @@ export function showNewSlide(direction) {
     const nextEl = document.querySelector('.next');
     nextEl.classList.add(animationType);
 
-
     carouselPetsItems[currentItem].addEventListener('animationend', function () {
-        this.classList.remove('next', direction, animationType);
+        this.classList.remove('next', direction);
         this.classList.add('active');
+        removeAnimationType(animationType);
         enableSliderPetsBtn();
     });
 };
-
 
 function changeCurrentItem(n) {
     currentItem = (n + carouselPetsItems.length) % carouselPetsItems.length;

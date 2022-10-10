@@ -120,17 +120,17 @@
             width: 100%;
             display: flex;
 
-            // @media screen and (min-width: $desktop-default) {
-            //     grid-template-columns: repeat(3, 1160px);
-            // }
+            @media screen and (min-width: $desktop-default) {
+                grid-template-columns: repeat(3, 1160px);
+            }
 
-            // @media screen and ($width: $small-desktop) {
-            //     grid-template-columns: repeat(3, 94vw);
-            // }
+            @media screen and ($width: $small-desktop) {
+                grid-template-columns: repeat(3, 94vw);
+            }
 
-            // @media screen and ($width: $tablet) {
-            //     grid-template-columns: repeat(3, 93.6vw);
-            // }
+            @media screen and ($width: $tablet) {
+                grid-template-columns: repeat(3, 93.6vw);
+            }
 
             @media screen and ($width: $mobile) {
                 display: flex;

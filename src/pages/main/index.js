@@ -3,7 +3,7 @@ import '../../assets/styles/main.scss';
 import { burgerMenuButton, openMenu, burgerMenuClose, closeMenu } from '../../assets/js-code/burger-menu';
 import { testimonialsList, createTestimonials, testimonialsScrollbar, handleTestimonialsScrollbar } from '../../assets/js-code/carousel-testimonials';
 import { openPopupTestimonial, popupCloseButton, closePopupTestimonial } from '../../assets/js-code/popup-testimonials';
-import { carouselPetsItems, disableSliderPetsBtn, enableSliderPetsBtn, petsPrevBtn, petsNextBtn, fillContainerWithCards, createNewSlide, showNewSlide, hideCurrentCard, handlePetsPrevBtn, handlePetsNextBtn } from '../../assets/js-code/carousel-pets';
+import { carouselPetsItems, petsPrevBtn, petsNextBtn, fillContainerWithCards, handlePetsPrevBtn, handlePetsNextBtn } from '../../assets/js-code/carousel-pets';
 
 const smalDesktopWidth = 1340;
 const tabletWidth = 980;
@@ -42,28 +42,6 @@ function loadContent() {
 
     createTestimonials();
 };
-
-// // carousel pets
-// let currentItem = 0;
-
-// function changeCurrentItem(n) {
-//     currentItem = (n + carouselPetsItems.length) % carouselPetsItems.length;
-// };
-
-// // carousel pets buttons
-// function handlePetsPrevBtn() {
-//     disableSliderPetsBtn();
-//     hideCurrentCard('to-right', currentItem, numberOfAnimalCards);
-//     changeCurrentItem(currentItem - 1);
-//     showNewSlide('from-left', currentItem);
-// };
-
-// function handlePetsNextBtn() {
-//     disableSliderPetsBtn();
-//     hideCurrentCard('to-left', currentItem, numberOfAnimalCards);
-//     changeCurrentItem(currentItem + 1);
-//     showNewSlide('from-right', currentItem);
-// };
 
 function handlePetsCarouselPrev() {
     handlePetsPrevBtn(numberOfAnimalCards)
