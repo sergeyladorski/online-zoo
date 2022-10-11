@@ -119,6 +119,8 @@
         .pets__carousel {
             width: 100%;
             display: flex;
+            position: relative;
+            overflow: hidden;
 
             @media screen and (min-width: $desktop-default) {
                 grid-template-columns: repeat(3, 1160px);

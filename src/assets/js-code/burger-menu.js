@@ -31,4 +31,4 @@ export function closeMenu() {
     burgerMenu.classList.remove('burger-menu_active');
     document.removeEventListener('mousedown', handleOverlay);
     document.removeEventListener("keydown", closeMenuByEsc);
-}
+};

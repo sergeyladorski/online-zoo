@@ -8,7 +8,6 @@ const donateBarOptionArray = Array.from(donateBarOptionList);
 const defaultOption = '100';
 const inputRangeAmount = document.querySelector('.donate__bar-input');
 const inputOptionSelector = 'donate__bar-option';
-// const inputOption = document.querySelector('.donate__bar-option');
 const customAmountInput = document.querySelector('.donate__amount-custom-input');
 const donateForm = document.querySelector('.donate__form');
 
@@ -49,6 +48,13 @@ function handleInputAmoutChange(evt) {
 };
 
 function handleCustomAmountChange() {
+    const maxLength = customAmountInput.getAttribute('maxlength');
+
+    if (customAmountInput.value.length > maxLength) {
+        customAmountInput.value = customAmountInput.value.substr(0, maxLength);
+    }
+
+
     donateBarOptionArray.forEach((option) => {
         if (option.getAttribute('data-amount') === customAmountInput.value) {
             option.classList.add('donate__bar-option_active');
